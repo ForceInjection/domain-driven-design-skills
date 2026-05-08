@@ -102,44 +102,33 @@ date_added: "<YYYY-MM-DD>"
 
 ### 2.2 依赖关系图
 
-```text
-             ┌────────────┐
-             │  ddd-scope │ ①
-             └─────┬──────┘
-                   │
-                   ▼
-            ┌──────────────┐
-            │ ddd-discover │ ②
-            └──────┬───────┘
-                   │
-            ┌──────┼──────────┐
-            ▼      │          │
-   ┌───────────────┐         │
-   │ ddd-subdomains│ ③       │
-   └───────┬───────┘         │
-           │                  │
-           ▼                  ▼
-   ┌───────────────┐
-   │ ddd-contexts  │ ④
-   └───────┬───────┘
-           │
-           ▼
-  ┌─────────────────┐
-  │ ddd-context-map │ ⑤
-  └────────┬────────┘
-           │
-      ┌────┴─────┐
-      ▼          ▼
-┌──────────────┐ ┌────────────────────────┐
-│ddd-aggregates│ │ddd-domain-interactions │
-│      ⑥      │──▶│           ⑦           │
-└──────┬───────┘ └───────────┬────────────┘
-       │                     │
-       └──────────┬──────────┘
-                  ▼
-        ┌──────────────────┐
-        │ ddd-model-review │ ⑧
-        └──────────────────┘
+```mermaid
+flowchart TD
+    %% Stage I: Discovery
+    A1["① ddd-scope"]
+    A2["② ddd-discover"]
+    
+    %% Stage II: Strategic
+    B1["③ ddd-subdomains"]
+    B2["④ ddd-contexts"]
+    B3["⑤ ddd-context-map"]
+    
+    %% Stage III: Tactical
+    C1["⑥ ddd-aggregates"]
+    C2["⑦ ddd-domain-interactions"]
+    
+    %% Stage IV: Validation
+    D1["⑧ ddd-model-review"]
+    
+    A1 --> A2
+    A2 --> B1
+    B1 --> B2
+    B2 --> B3
+    B3 --> C1
+    B3 --> C2
+    C1 --> C2
+    C1 --> D1
+    C2 --> D1
 ```
 
 ### 2.3 输入/输出流转表

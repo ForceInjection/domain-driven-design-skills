@@ -47,7 +47,7 @@ git clone --recurse-submodules https://github.com/<your-org>/domain-driven-desig
 | II 战略  | `ddd-contexts`            | 限界上下文设计：职责、通用语言词汇表、边界 ADR、所有权      |                                               |
 | II 战略  | `ddd-context-map`         | 上下文映射：集成模式（ACL/OHS/PL 等）、契约所有权、失败模式 |                                               |
 | III 战术 | `ddd-aggregates`          | 聚合设计：不变量、实体/值对象、事务边界与跨聚合一致性策略   | `domain-driven-design`, `clean-ddd-hexagonal` |
-| III 战术 | `ddd-domain-interactions` | 领域交互：领域事件目录、领域服务、仓储接口、工厂            |                                               |
+| III 战术 | `ddd-domain-interactions` | 领域交互：领域事件目录、领域服务、仓库接口、工厂            |                                               |
 | IV 验证  | `ddd-model-review`        | 模型质量评估：一致性评分、完整性检查、耦合分析与回溯触发    | `clean-architecture`                          |
 
 > **非线性流程**：阶段之间支持双向反馈，模型验证（阶段 IV）可触发回溯至前置阶段进行修正。详细的依赖图与触发回溯矩阵见 [ddd-skill-system-design.md](ddd-skill-system-design.md) 附录 B。

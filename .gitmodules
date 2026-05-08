@@ -25,3 +25,6 @@
 [submodule "relative-skills/claude-skill-registry"]
 	path = relative-skills/claude-skill-registry
 	url = https://github.com/majiayu000/claude-skill-registry.git
+[submodule "validation-cases/cargo-shipping"]
+	path = validation-cases/cargo-shipping
+	url = https://github.com/citerus/dddsample-core.git

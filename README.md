@@ -110,6 +110,17 @@ git clone --recurse-submodules https://github.com/<your-org>/domain-driven-desig
 
 ---
 
+## 质量验证
+
+为了对自研 `ddd-*` Skill 主干做 **客观、可重复的质量评估**，仓库维护一个独立的 `validation-cases/` 目录，收录端到端的盲跑验证案例与通用验证方法。
+
+- [validation-cases/README.md](validation-cases/README.md) —— **验证方法总纲**：6 步流程（模糊输入 → 盲跑 8 Skill → 真值抽取 → 对标评分 → 回溯注入测试 → 汇总报告）、盲跑约束、注入矩阵、可复用步骤与已知局限。
+- [validation-cases/cargo-validation/](validation-cases/cargo-validation/) —— **Cargo 验证案例**：以 Eric Evans + Citerus 的 Cargo Shipping DDD Sample（子模块 `validation-cases/cargo-shipping`）为真值参照，完整运行 8 Skill 流水线。当前加权得分 **85.8 %**（B+ 良好），回溯触发器测试 **3/3 全通过**；完整结论见 [REPORT.md](validation-cases/cargo-validation/REPORT.md)。
+
+验证结果已反哺到主干 SKILL 的迭代（例如 `ddd-aggregates` 的"外部引用再审视 + Specification 模式"、`ddd-model-review` 的"行业对标维度"、`ddd-contexts` 的"中间概念 ADR"），形成可观测的反馈闭环。
+
+---
+
 ## 目录结构
 
 ```text
@@ -122,6 +133,11 @@ skills/
 ├── ddd-aggregates/             # 阶段 III：聚合设计
 ├── ddd-domain-interactions/    # 阶段 III：领域交互
 └── ddd-model-review/           # 阶段 IV：模型验证
+
+validation-cases/
+├── README.md                   # 验证方法总纲（6 步流程）
+├── cargo-shipping/             # Cargo Shipping DDD Sample（子模块，真值来源）
+└── cargo-validation/           # Cargo 验证案例（盲产出 + 真值 + 评分 + 回溯注入 + REPORT）
 
 relative-skills/
 ├── wondelai-skills/            # domain-driven-design
@@ -141,6 +157,8 @@ relative-skills/
 
 - [ddd-skill-system-design.md](ddd-skill-system-design.md) — 领域驱动设计自研体系主干设计文档（4 阶段模型、依赖图、反馈环矩阵）
 - [ddd-skills-report.md](ddd-skills-report.md) — 领域驱动设计技能调研报告（含引用与改进 Backlog）
+- [validation-cases/README.md](validation-cases/README.md) — 验证方法总纲（6 步盲跑流程、注入矩阵、复用指南）
+- [validation-cases/cargo-validation/REPORT.md](validation-cases/cargo-validation/REPORT.md) — Cargo Shipping 验证报告（当前得分 85.8 %）
 
 ---
 

@@ -1,0 +1,12 @@
+{
+  "name": "kotlin-di",
+  "description": "Dependency Injection - Hilt, Koin, scopes, testing",
+  "repo": "pluginagentmarketplace/custom-plugin-kotlin",
+  "category": "testing",
+  "tags": [
+    "kotlin"
+  ],
+  "stars": 1,
+  "source": "local",
+  "dir_name": "kotlin-di"
+}

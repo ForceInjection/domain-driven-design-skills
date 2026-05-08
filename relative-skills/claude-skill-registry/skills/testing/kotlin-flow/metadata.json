@@ -1,0 +1,13 @@
+{
+  "name": "kotlin-flow",
+  "description": "Kotlin Flow - StateFlow, SharedFlow, operators, testing",
+  "repo": "pluginagentmarketplace/custom-plugin-kotlin",
+  "category": "testing",
+  "tags": [
+    "kotlin",
+    "flow"
+  ],
+  "stars": 1,
+  "source": "local",
+  "dir_name": "kotlin-flow"
+}

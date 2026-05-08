@@ -1,0 +1,13 @@
+{
+  "name": "kotlin-patterns",
+  "description": "Kotlin/Spring Boot patterns for Orca service - use when implementing backend features, writing services, repositories, or controllers",
+  "repo": "ashchupliak/dream-team",
+  "category": "product",
+  "tags": [
+    "kotlin",
+    "patterns"
+  ],
+  "stars": 1,
+  "source": "local",
+  "dir_name": "kotlin-patterns"
+}

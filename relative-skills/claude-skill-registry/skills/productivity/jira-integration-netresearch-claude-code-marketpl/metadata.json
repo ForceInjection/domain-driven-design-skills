@@ -1,0 +1,14 @@
+{
+  "name": "jira-integration",
+  "description": "Jira API operations, wiki markup, and workflow automation",
+  "repo": "netresearch/claude-code-marketplace",
+  "category": "productivity",
+  "tags": [
+    "jira",
+    "api",
+    "workflow",
+    "automation"
+  ],
+  "stars": 0,
+  "dir_name": "jira-integration-netresearch-claude-code-marketpl"
+}

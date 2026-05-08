@@ -1,27 +1,27 @@
-[submodule "skills/wondelai-skills"]
-	path = skills/wondelai-skills
+[submodule "relative-skills/wondelai-skills"]
+	path = relative-skills/wondelai-skills
 	url = https://github.com/wondelai/skills.git
-[submodule "skills/robust-skills"]
-	path = skills/robust-skills
+[submodule "relative-skills/robust-skills"]
+	path = relative-skills/robust-skills
 	url = https://github.com/ccheney/robust-skills.git
-[submodule "skills/antigravity-awesome-skills"]
-	path = skills/antigravity-awesome-skills
+[submodule "relative-skills/antigravity-awesome-skills"]
+	path = relative-skills/antigravity-awesome-skills
 	url = https://github.com/sickn33/antigravity-awesome-skills.git
-[submodule "skills/aiee-team"]
-	path = skills/aiee-team
+[submodule "relative-skills/aiee-team"]
+	path = relative-skills/aiee-team
 	url = https://github.com/ai-enhanced-engineer/aiee-team.git
-[submodule "skills/cleanddd-skills"]
-	path = skills/cleanddd-skills
+[submodule "relative-skills/cleanddd-skills"]
+	path = relative-skills/cleanddd-skills
 	url = https://github.com/netcorepal/cleanddd-skills.git
-[submodule "skills/jeffallan-claude-skills"]
-	path = skills/jeffallan-claude-skills
+[submodule "relative-skills/jeffallan-claude-skills"]
+	path = relative-skills/jeffallan-claude-skills
 	url = https://github.com/Jeffallan/claude-skills.git
-[submodule "skills/agentic-flow"]
-	path = skills/agentic-flow
+[submodule "relative-skills/agentic-flow"]
+	path = relative-skills/agentic-flow
 	url = https://github.com/ruvnet/agentic-flow.git
-[submodule "skills/solon-ai"]
-	path = skills/solon-ai
+[submodule "relative-skills/solon-ai"]
+	path = relative-skills/solon-ai
 	url = https://github.com/opensolon/solon-ai.git
-[submodule "skills/claude-skill-registry"]
-	path = skills/claude-skill-registry
+[submodule "relative-skills/claude-skill-registry"]
+	path = relative-skills/claude-skill-registry
 	url = https://github.com/majiayu000/claude-skill-registry.git

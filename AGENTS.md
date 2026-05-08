@@ -35,7 +35,7 @@ There is no build system, linter, or test suite at root level. This is a documen
 
 ### Dual-Layer Directory Structure
 
-```
+```text
 skills/              → In-house system backbone (8 skills, 4 stages)
 relative-skills/     → External git submodules (9 repos, frozen references)
 ```
@@ -72,7 +72,7 @@ Every in-house skill follows a mandatory interface structure:
 
 Skills are invoked via `@skill-name` syntax in AI agent contexts:
 
-```
+```text
 @ddd-scope <business problem description>
 @ddd-model-review <existing model artifacts>
 ```

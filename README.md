@@ -11,7 +11,7 @@ git clone --recurse-submodules https://github.com/<your-org>/domain-driven-desig
 
 ---
 
-## 本 Repo DDD Skills（`ddd-*` Skill）
+## 本仓库 DDD Skills（`ddd-*` Skill）
 
 本仓库的核心交付物是 `skills/` 目录下的一组 **自研 `ddd-*` Skill**，它们构成一套面向 AI Agent 的领域建模主干链路。`relative-skills/` 下的外部子模块仅作为**生态参考**，用于对比与按需引用，不承担主流程职责。
 

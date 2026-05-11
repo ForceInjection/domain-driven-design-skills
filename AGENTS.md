@@ -6,12 +6,12 @@ This file provides guidance to Qoder (qoder.com) when working with code in this 
 
 This is a **DDD Skill Aggregation Repository** — a unified hub for Domain-Driven Design AI Agent Skills. It combines:
 
-- **In-house system backbone** (`skills/`) — 8 self-developed skills forming a 4-stage DDD modeling pipeline
+- **In-house system backbone** (`skills/`) — 9 self-developed skills forming a 5-stage DDD modeling & specification pipeline
 - **External open-source modules** (`relative-skills/`) — 9 git submodules with 20+ DDD skills from the ecosystem
 
 Primary language: Chinese (documentation and skill definitions). License: Apache 2.0. Status: WIP.
 
-**Design boundary**: This system covers **domain modeling only** (strategic + tactical). No code implementation, testing, or architecture compliance.
+**Design boundary**: This system covers **domain modeling** (strategic + tactical) and **implementation specification** (bridging to OpenSpec). No code implementation, testing, or architecture compliance.
 
 ## Commands
 
@@ -36,26 +36,27 @@ There is no build system, linter, or test suite at root level. This is a documen
 ### Dual-Layer Directory Structure
 
 ```text
-skills/              → In-house system backbone (8 skills, 4 stages)
+skills/              → In-house system backbone (9 skills, 5 stages)
 relative-skills/     → External git submodules (9 repos, frozen references)
 ```
 
-### 4-Stage DDD Modeling Pipeline (In-House Backbone)
+### 5-Stage DDD Modeling & Specification Pipeline (In-House Backbone)
 
-| Stage         | Skill                     | Purpose                                                               |
-| ------------- | ------------------------- | --------------------------------------------------------------------- |
-| I Discovery   | `ddd-scope`               | Converge fuzzy requirements into modeling inputs                      |
-| I Discovery   | `ddd-discover`            | Collaborative domain discovery (event storming / domain storytelling) |
-| II Strategic  | `ddd-subdomains`          | Identify capabilities, classify subdomains (core/supporting/generic)  |
-| II Strategic  | `ddd-contexts`            | Design bounded contexts with their ubiquitous language                |
-| II Strategic  | `ddd-context-map`         | Map inter-context relationships and integration patterns              |
-| III Tactical  | `ddd-aggregates`          | Aggregate design from invariants: roots, entities, value objects      |
-| III Tactical  | `ddd-domain-interactions` | Events, domain services, repository interfaces, factories             |
-| IV Validation | `ddd-model-review`        | Holistic model quality assessment with feedback loop triggers         |
+| Stage           | Skill                     | Purpose                                                               |
+| --------------- | ------------------------- | --------------------------------------------------------------------- |
+| I Discovery     | `ddd-scope`               | Converge fuzzy requirements into modeling inputs                      |
+| I Discovery     | `ddd-discover`            | Collaborative domain discovery (event storming / domain storytelling) |
+| II Strategic    | `ddd-subdomains`          | Identify capabilities, classify subdomains (core/supporting/generic)  |
+| II Strategic    | `ddd-contexts`            | Design bounded contexts with their ubiquitous language                |
+| II Strategic    | `ddd-context-map`         | Map inter-context relationships and integration patterns              |
+| III Tactical    | `ddd-aggregates`          | Aggregate design from invariants: roots, entities, value objects      |
+| III Tactical    | `ddd-domain-interactions` | Events, domain services, repository interfaces, factories             |
+| IV Validation   | `ddd-model-review`        | Holistic model quality assessment with feedback loop triggers         |
+| V Specification | `ddd-openspec-bridge`     | Bridge tactical models to OpenSpec structured specifications          |
 
 ### Non-Linear Feedback Loops
 
-Stages are NOT strictly sequential. Later skills can trigger returns to earlier skills via explicit "trigger-recycle conditions" (defined in Appendix B of `ddd-skill-system-design.md`). For example:
+Stages are NOT strictly sequential. Later skills can trigger returns to earlier skills via explicit "trigger-recycle conditions" (defined in Appendix B of `docs/ddd-skill-system-design.md`). For example:
 
 - Invariant expression rate < 60% → return to `ddd-aggregates`
 - Terminology conflict rate > 20% → return to `ddd-contexts`
@@ -80,8 +81,9 @@ Skills are invoked via `@skill-name` syntax in AI agent contexts:
 ## Key Documents
 
 - `README.md` — Hub documentation with skill selection guides
-- `ddd-skill-system-design.md` — System design: 4-stage model, skill mapping, dependency graph, reference materials, trigger-recycle matrix (Appendix B), example (Appendix A)
-- `ddd-skills-report.md` — Research report on 20+ DDD skills with evaluation
+- `docs/ddd-skill-system-design.md` — System design: 5-stage model, skill mapping, dependency graph, reference materials, trigger-recycle matrix (Appendix B), example (Appendix A)
+- `docs/ddd-openspec-mapping.md` — Mapping Guide: Standard definitions for converting DDD tactical artifacts to OpenSpec specifications
+- `docs/ddd-skills-report.md` — Research report on 20+ DDD skills with evaluation
 
 ## Conventions
 

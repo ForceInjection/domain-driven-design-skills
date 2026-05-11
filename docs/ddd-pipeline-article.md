@@ -1,5 +1,8 @@
 # 一套可验证的 DDD 建模技能流水线：从模糊需求到聚合模型的工程化落地
 
+> 注：本文描述的是本体系的**第一版流水线设计（4 阶段 / 8 Skill）**，也是当前 Cargo Shipping 验证案例直接对应的版本。
+> 当前主干已扩展为 **5 阶段 / 9 Skill**，新增阶段 V `ddd-openspec-bridge` 用于将战术模型转化为 OpenSpec 工程规范；详见 [ddd-skill-system-design.md](ddd-skill-system-design.md)。
+
 本体系由 8 个 AI Agent Skill 组成 4 阶段流水线（发现→战略→战术→验证），以 SKILL.md 7 节合约固定输入输出类型，以 10 条数值化回溯触发器实现非线性反馈，以 6 步盲跑方法提供外部评分基线。Cargo Shipping 首轮验证：加权 85.8 %，回溯触发器 3/3 全通过。
 
 ---
@@ -65,6 +68,8 @@ AI Agent 的 Skill 形态提供了一种全新的承载介质。一个 Skill = �
 ## 三、方案：8 Skill × 4 阶段 × 验证方法的三位一体
 
 针对上述三条短板，DDD 技能聚合仓库提出一个三位一体的答案：**以 4 阶段流水线给碎片定骨架、以 SKILL.md 合约给输出定契约、以盲跑验证方法给迭代定证据**。本节沿着"骨架 → 合约 → 反馈 → 验证 → 实证"的过程叙事逐层展开。
+
+关于阶段闭环与技能映射的详细设计，请参阅独立的设计文档：[ddd-skill-system-design.md](ddd-skill-system-design.md)。
 
 ### 3.1 骨架：四阶段线性主路
 

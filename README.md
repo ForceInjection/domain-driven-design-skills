@@ -2,7 +2,7 @@
 
 > ⚠️ **Work In Progress (WIP)**：本仓库及其自研体系主干正处于积极建设与持续迭代中，部分结构、文档与规范可能随时调整。
 
-本仓库以自研的 `ddd-*` Skill 为核心，提供一套面向 AI Agent 的领域建模主干链路（发现 / 战略 / 战术 / 验证）；同时以 Git Submodule 形式收录主流 DDD 相关 AI Skill，作为生态参考便于对比与按需引用。
+本仓库以自研的 `ddd-*` Skill 为核心，提供一套面向 AI Agent 的领域建模主干链路（发现 / 战略 / 战术 / 验证 / 规范衔接）；同时以 Git Submodule 形式收录主流 DDD 相关 AI Skill，作为生态参考便于对比与按需引用。
 
 ```bash
 # 快速克隆（含所有子模块）
@@ -25,19 +25,17 @@ git clone --recurse-submodules https://github.com/<your-org>/domain-driven-desig
 
 **目标**：
 
-- 提供覆盖 4 阶段（发现 / 战略 / 战术 / 验证）的标准化 Skill，每个 Skill 在一次对话轮次内产出**结构化工件**。
+- 提供覆盖 5 阶段（发现 / 战略 / 战术 / 验证 / 规范衔接）的标准化 Skill，每个 Skill 在一次对话轮次内产出**结构化工件**。
 - 统一 SKILL.md 接口契约（使用时机、输入、流程、输出、校验清单、回溯触发），保证阶段间工件可衔接。
 - 显式定义**触发回溯条件**（如不变量表达率 < 60% 回到 `ddd-aggregates`），支持双向闭环反馈。
-- 支持**非顺序入口**：全新项目、已有系统、局部深化、质量审查都能找到合适的切入 Skill。
+- 支持**非顺序入口**：全新项目、已有系统、局部深化、质量审查、规范生成都能找到合适的切入 Skill。
 
 **非目标**：
 
-- **不生成业务代码**，不规定实现层的目录结构、框架或语言。
-- **不覆盖测试策略**（单元测试、契约测试、集成测试等均不在范围内）。
-- **不做架构合规性检查**（如依赖方向、分层规则的静态校验）。
-- **不绑定特定技术栈**（Java / Kotlin / Python / .NET 相关实现请使用外部生态 Skill）。
+- **不直接生成业务代码**，本仓库聚焦于领域建模与工程规范的衔接（OpenSpec），具体代码实现由开发者或下游 AI 工具完成。
+- **不规定特定技术栈**（Java / Kotlin / Python / .NET 相关实现请使用外部生态 Skill）。
 
-### Skill 清单（4 阶段 / 8 Skills）
+### Skill 清单（5 阶段 / 9 Skills）
 
 | 阶段     | Skill                     | 简介                                                        | 可选增强（外部）                              |
 | :------- | :------------------------ | :---------------------------------------------------------- | :-------------------------------------------- |
@@ -49,8 +47,9 @@ git clone --recurse-submodules https://github.com/<your-org>/domain-driven-desig
 | III 战术 | `ddd-aggregates`          | 聚合设计：不变量、实体/值对象、事务边界与跨聚合一致性策略   | `domain-driven-design`, `clean-ddd-hexagonal` |
 | III 战术 | `ddd-domain-interactions` | 领域交互：领域事件目录、领域服务、仓库接口、工厂            |                                               |
 | IV 验证  | `ddd-model-review`        | 模型质量评估：一致性评分、完整性检查、耦合分析与回溯触发    | `clean-architecture`                          |
+| V 规范   | `ddd-openspec-bridge`     | 规范衔接：将 DDD 战术工件映射为 OpenSpec 结构化规范         | `openspec-assistant`                          |
 
-> **非线性流程**：阶段之间支持双向反馈，模型验证（阶段 IV）可触发回溯至前置阶段进行修正。详细的依赖图与触发回溯矩阵见 [ddd-skill-system-design.md](ddd-skill-system-design.md) 附录 B。
+> **非线性流程**：阶段之间支持双向反馈，模型验证（阶段 IV）可触发回溯至前置阶段进行修正，最终通过阶段 V 导出为工程规范。详细的依赖图与触发回溯矩阵见 [ddd-skill-system-design.md](docs/ddd-skill-system-design.md) 附录 B。
 
 ### 入口选择与调用方式
 
@@ -58,11 +57,12 @@ git clone --recurse-submodules https://github.com/<your-org>/domain-driven-desig
 
 | 场景                 | 推荐入口                         | 说明                                     |
 | :------------------- | :------------------------------- | :--------------------------------------- |
-| 全新项目、需求模糊   | `ddd-scope` → `ddd-discover` → … | 从范围收敛开始，完整走完 4 阶段          |
+| 全新项目、需求模糊   | `ddd-scope` → `ddd-discover` → … | 从范围收敛开始，完整走完 5 阶段          |
 | 已明确需求，直接探索 | `ddd-discover`                   | 已有 scope 上下文，跳过范围收敛          |
 | 子域已知，需细化边界 | `ddd-contexts`                   | 基于既有子域分类设计上下文与通用语言     |
 | 单个上下文深化战术   | `ddd-aggregates`                 | 已有上下文定义，聚焦聚合与领域交互       |
 | 已有模型需要体检     | `ddd-model-review`               | 对现有建模工件做一致性、完整性与耦合评估 |
+| 准备开发，生成规范   | `ddd-openspec-bridge`            | 将战术模型转化为 OpenSpec 变更集         |
 
 **调用方式**：在 AI Agent 对话中使用 `@skill-name` 语法，工件可作为下一阶段 Skill 的输入直接传递：
 
@@ -130,9 +130,10 @@ skills/
 ├── ddd-subdomains/             # 阶段 II：子域分类
 ├── ddd-contexts/               # 阶段 II：限界上下文 + 通用语言
 ├── ddd-context-map/            # 阶段 II：上下文映射
-├── ddd-aggregates/             # 阶段 III：聚合设计
+├── ddd-aggregates/               # 阶段 III：聚合设计
 ├── ddd-domain-interactions/    # 阶段 III：领域交互
-└── ddd-model-review/           # 阶段 IV：模型验证
+├── ddd-model-review/           # 阶段 IV：模型验证
+└── ddd-openspec-bridge/        # 阶段 V：规范衔接（OpenSpec）
 
 validation-cases/
 ├── README.md                   # 验证方法总纲（6 步流程）
@@ -155,8 +156,9 @@ relative-skills/
 
 ## 相关文档
 
-- [ddd-skill-system-design.md](ddd-skill-system-design.md) — 领域驱动设计自研体系主干设计文档（4 阶段模型、依赖图、反馈环矩阵）
-- [ddd-skills-report.md](ddd-skills-report.md) — 领域驱动设计技能调研报告（含引用与改进 Backlog）
+- [ddd-skill-system-design.md](docs/ddd-skill-system-design.md) — 领域驱动设计自研体系主干设计文档（5 阶段模型、依赖图、反馈环矩阵）
+- [ddd-openspec-mapping.md](docs/ddd-openspec-mapping.md) — 映射指南：DDD 战术工件向 OpenSpec 规格转化的标准定义
+- [ddd-skills-report.md](docs/ddd-skills-report.md) — 领域驱动设计技能调研报告（含引用与改进 Backlog）
 - [validation-cases/README.md](validation-cases/README.md) — 验证方法总纲（6 步盲跑流程、注入矩阵、复用指南）
 - [validation-cases/cargo-validation/REPORT.md](validation-cases/cargo-validation/REPORT.md) — Cargo Shipping 验证报告（当前得分 85.8 %）
 

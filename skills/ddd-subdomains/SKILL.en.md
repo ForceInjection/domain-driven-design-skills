@@ -8,9 +8,9 @@ tags: "[ddd, strategic, subdomains]"
 date_added: "2026-05-08"
 ---
 
-> 🌐 中文版本: [Chinese](SKILL.md)
-
 # DDD Subdomains
+
+> 🌐 中文版本: [Chinese](SKILL.md)
 
 ## When to Use
 
@@ -34,13 +34,13 @@ date_added: "2026-05-08"
 
 ## Output
 
-| Artifact                 | Structure Requirements                                                                         |
-| :----------------------- | :--------------------------------------------------------------------------------------------- |
-| Capability List          | Table: capability, description, related events, upstream/downstream dependencies               |
+| Artifact                 | Structure Requirements                                                                                        |
+| :----------------------- | :------------------------------------------------------------------------------------------------------------ |
+| Capability List          | Table: capability, description, related events, upstream/downstream dependencies                              |
 | Subdomain Classification | Table: capability/capability group, subdomain type (Core/Supporting/Generic), rationale, suggested investment |
-| Core Domain Declaration  | Within 1 page: value, boundary, measurement indicators, risks, evolution direction             |
-| Ownership Recommendation | Table: capability/subdomain, suggested team, dependents, collaboration approach                |
-| Boundary Candidates      | List: preliminary subdomain-to-context mapping suggestions                                     |
+| Core Domain Declaration  | Within 1 page: value, boundary, measurement indicators, risks, evolution direction                            |
+| Ownership Recommendation | Table: capability/subdomain, suggested team, dependents, collaboration approach                               |
+| Boundary Candidates      | List: preliminary subdomain-to-context mapping suggestions                                                    |
 
 ## Validation Checklist
 

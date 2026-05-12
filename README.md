@@ -1,5 +1,9 @@
 # 领域驱动设计 (DDD) Skill 全景图
 
+> 🌐 English version: [English](README.en.md)
+
+---
+
 > ⚠️ **Work In Progress (WIP)**：本仓库及其自研体系主干正处于积极建设与持续迭代中，部分结构、文档与规范可能随时调整。
 
 本仓库以自研的 `ddd-*` Skill 为核心，提供一套面向 AI Agent 的领域建模主干链路（发现 / 战略 / 战术 / 验证 / 规范衔接）；同时以 Git Submodule 形式收录主流 DDD 相关 AI Skill，作为生态参考便于对比与按需引用。
@@ -130,7 +134,7 @@ skills/
 ├── ddd-subdomains/             # 阶段 II：子域分类
 ├── ddd-contexts/               # 阶段 II：限界上下文 + 通用语言
 ├── ddd-context-map/            # 阶段 II：上下文映射
-├── ddd-aggregates/               # 阶段 III：聚合设计
+├── ddd-aggregates/             # 阶段 III：聚合设计
 ├── ddd-domain-interactions/    # 阶段 III：领域交互
 ├── ddd-model-review/           # 阶段 IV：模型验证
 └── ddd-openspec-bridge/        # 阶段 V：规范衔接（OpenSpec）
@@ -145,7 +149,7 @@ relative-skills/
 ├── robust-skills/              # clean-ddd-hexagonal
 ├── antigravity-awesome-skills/ # ddd-strategic-design, ddd-context-mapping, architecture-patterns
 ├── aiee-team/                  # arch-ddd
-├── claude-skill-registry/      # ddd-planning, fastapi-ddd-guidelines, unit-test-ddd
+├── claude-skill-registry/      # ddd-planning（通用 DDD Skill 注册表，本表仅收录 ddd-planning）
 ├── cleanddd-skills/            # cleanddd-skills
 ├── agentic-flow/               # claude-flow
 ├── solon-ai/                   # Solon AI Skills
@@ -157,6 +161,7 @@ relative-skills/
 ## 相关文档
 
 - [ddd-skill-system-design.md](docs/ddd-skill-system-design.md) — 领域驱动设计自研体系主干设计文档（5 阶段模型、依赖图、反馈环矩阵）
+- [ddd-pipeline-article.md](docs/ddd-pipeline-article.md) — 技能流水线叙述性介绍（4 阶段 / 8 Skill 首版设计 + Cargo 验证关键结论）
 - [ddd-openspec-mapping.md](docs/ddd-openspec-mapping.md) — 映射指南：DDD 战术工件向 OpenSpec 规格转化的标准定义
 - [ddd-skills-report.md](docs/ddd-skills-report.md) — 领域驱动设计技能调研报告（含引用与改进 Backlog）
 - [validation-cases/README.md](validation-cases/README.md) — 验证方法总纲（6 步盲跑流程、注入矩阵、复用指南）

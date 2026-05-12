@@ -9,6 +9,8 @@ date_added: "2026-05-08"
 
 # DDD Aggregates
 
+> 🌐 English version: [English](SKILL.en.md)
+
 ## 使用时机
 
 - 限界上下文与集成策略已就绪，需要设计上下文内部的构造块。

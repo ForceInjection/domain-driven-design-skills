@@ -1,5 +1,9 @@
 # DDD 技能验证方法 (Validation Method)
 
+> 🌐 English version: [English](README.en.md)
+
+---
+
 > 本目录记录对自研 8 个 DDD 建模 Skill 的 **端到端验证方法**，以及各个已完成的验证案例。
 >
 > 当前案例：[cargo-validation](./cargo-validation/) — 以 Eric Evans + Citerus 的 Cargo Shipping DDD Sample 为真值参照。

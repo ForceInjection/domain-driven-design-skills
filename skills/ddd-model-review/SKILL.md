@@ -9,6 +9,8 @@ date_added: "2026-05-08"
 
 # DDD Model Review
 
+> 🌐 English version: [English](SKILL.en.md)
+
 ## 使用时机
 
 - 战术建模完成后，需要对整体模型做质量门禁检查。

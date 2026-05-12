@@ -9,7 +9,7 @@ This is a **DDD Skill Aggregation Repository** — a unified hub for Domain-Driv
 - **In-house system backbone** (`skills/`) — 9 self-developed skills forming a 5-stage DDD modeling & specification pipeline
 - **External open-source modules** (`relative-skills/`) — 9 git submodules with 20+ DDD skills from the ecosystem
 
-Primary language: Chinese (documentation and skill definitions). License: Apache 2.0. Status: WIP.
+Primary language: Chinese (documentation and skill definitions). English translations available with `.en.md` suffix. License: Apache 2.0. Status: WIP.
 
 **Design boundary**: This system covers **domain modeling** (strategic + tactical) and **implementation specification** (bridging to OpenSpec). No code implementation, testing, or architecture compliance.
 
@@ -66,7 +66,7 @@ Stages are NOT strictly sequential. Later skills can trigger returns to earlier 
 
 Every in-house skill follows a mandatory interface structure:
 
-1. **YAML frontmatter** — name, description, risk, source, tags, date_added
+1. **YAML frontmatter** — name, description, risk, source, tags, date_added (English SKILL files also include `lang: en`)
 2. **Sections** — Usage Timing, Input Requirements, Process, Output (table), Validation Checklist, Backtrack Triggers, Example
 
 ### Invocation Pattern
@@ -80,10 +80,10 @@ Skills are invoked via `@skill-name` syntax in AI agent contexts:
 
 ## Key Documents
 
-- `README.md` — Hub documentation with skill selection guides
-- `docs/ddd-skill-system-design.md` — System design: 5-stage model, skill mapping, dependency graph, reference materials, trigger-recycle matrix (Appendix B), example (Appendix A)
-- `docs/ddd-openspec-mapping.md` — Mapping Guide: Standard definitions for converting DDD tactical artifacts to OpenSpec specifications
-- `docs/ddd-skills-report.md` — Research report on 20+ DDD skills with evaluation
+- `README.md` / `README.en.md` — Hub documentation with skill selection guides
+- `docs/ddd-skill-system-design.md` / `docs/ddd-skill-system-design.en.md` — System design: 5-stage model, skill mapping, dependency graph, reference materials, trigger-recycle matrix (Appendix B), example (Appendix A)
+- `docs/ddd-openspec-mapping.md` / `docs/ddd-openspec-mapping.en.md` — Mapping Guide: Standard definitions for converting DDD tactical artifacts to OpenSpec specifications
+- `docs/ddd-skills-report.md` / `docs/ddd-skills-report.en.md` — Research report on 20+ DDD skills with evaluation
 
 ## Conventions
 
@@ -92,3 +92,11 @@ Skills are invoked via `@skill-name` syntax in AI agent contexts:
 - All SKILL.md outputs must be structured as tables with explicit column requirements
 - Each skill must have validation checklists and backtrack triggers before advancing stages
 - Documentation is Chinese-primary; code identifiers and DDD patterns use English terminology
+
+### Bilingual Convention
+
+- Chinese originals live at default paths (`SKILL.md`, `README.md`, `docs/*.md`). English translations use an `.en.md` suffix (e.g., `SKILL.en.md`, `README.en.md`, `docs/ddd-skill-system-design.en.md`).
+- Every Chinese file includes a language switcher line linking to its English counterpart, and vice versa. Format: `> 🌐 English version: [English](SKILL.en.md)` / `> 🌐 中文版本: [Chinese](SKILL.md)`.
+- In SKILL.en.md YAML frontmatter, `name`, `tags`, `risk`, `source`, and `date_added` stay identical to the Chinese original; `description` is translated; an extra `lang: en` field is added.
+- Internal links within English files point to other `.en.md` files. Links to out-of-scope targets (e.g., submodule content) are annotated with `(in Chinese)`.
+- Excluded from bilingual treatment: `AGENTS.md` (English-only), `LICENSE`, and everything under `relative-skills/` (external submodules).

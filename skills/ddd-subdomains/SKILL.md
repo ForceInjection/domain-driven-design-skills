@@ -7,6 +7,8 @@ tags: "[ddd, strategic, subdomains]"
 date_added: "2026-05-08"
 ---
 
+> 🌐 English version: [English](SKILL.en.md)
+
 # DDD Subdomains
 
 ## 使用时机

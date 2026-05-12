@@ -9,6 +9,8 @@ date_added: "2026-05-08"
 
 # DDD Discover
 
+> 🌐 English version: [English](SKILL.en.md)
+
 ## 使用时机
 
 - 需要快速对齐核心业务流程与领域边界线索。

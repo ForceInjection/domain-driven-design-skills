@@ -1,10 +1,12 @@
 # 领域驱动设计体系主干设计
 
+> 🌐 English version: [English](ddd-skill-system-design.en.md)
+
 开源生态提供了大量单点 DDD 能力，但 AI Agent 真正需要的是一套**可重复、可回环的建模链路**：从问题空间发现到战略分解、从战术建模到模型验证，形成闭环。为此，本仓库在 `skills/` 下定义了一组 `ddd-*` 自研 Skill 作为体系主干——每个 Skill 是一段**面向 AI Agent (LLM) 的结构化指令**，在一次对话轮次中执行并产出结构化工件。
 
 **设计边界**：本体系覆盖**领域建模**（战略 + 战术）及**实现规范衔接**（通过 OpenSpec 连接到工程实现），不涉及具体代码实现、测试策略或架构合规性检查。
 
-- `ddd-skills-report.md` — Research report on 20+ DDD skills with evaluation
+- `ddd-skills-report.md` — 领域驱动设计技能调研报告（含引用与改进 Backlog）
 - `ddd-openspec-mapping.md` — 映射指南：DDD 战术工件向 OpenSpec 规格转化的标准定义
 
 ---

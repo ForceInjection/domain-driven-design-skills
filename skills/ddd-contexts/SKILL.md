@@ -9,6 +9,8 @@ date_added: "2026-05-08"
 
 # DDD Contexts
 
+> 🌐 English version: [English](SKILL.en.md)
+
 ## 使用时机
 
 - 子域已分类，需要设计解决方案空间的限界上下文边界。

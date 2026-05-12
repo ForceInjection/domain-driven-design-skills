@@ -1,5 +1,7 @@
 # DDD to OpenSpec 映射指南：从领域模型到工程规范
 
+> 🌐 English version: [English](ddd-openspec-mapping.en.md)
+
 本指南定义了领域驱动设计（DDD）产出物向 OpenSpec 规范化工作流转化的标准映射路径。通过将 DDD 的领域洞察力与 OpenSpec 的结构化执行力相结合，建立一套从模型到代码的高可靠衔接体系。
 
 ---

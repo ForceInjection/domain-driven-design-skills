@@ -9,6 +9,8 @@ date_added: "2026-05-11"
 
 # DDD OpenSpec Bridge
 
+> 🌐 English version: [English](SKILL.en.md)
+
 ## 使用时机
 
 - 战术建模（Stage III）已完成，模型通过验证（Stage IV），准备进入开发阶段。

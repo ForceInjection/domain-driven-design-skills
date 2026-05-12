@@ -9,6 +9,8 @@ date_added: "2026-05-08"
 
 # DDD Context Map
 
+> 🌐 English version: [English](SKILL.en.md)
+
 ## 使用时机
 
 - 限界上下文已定义完毕，需要设计它们之间的协作与集成关系。

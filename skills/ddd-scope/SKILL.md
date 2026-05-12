@@ -9,6 +9,8 @@ date_added: "2026-05-08"
 
 # DDD Scope
 
+> 🌐 English version: [English](SKILL.en.md)
+
 ## 使用时机
 
 - 需求描述模糊，不同角色对问题边界理解不一致。

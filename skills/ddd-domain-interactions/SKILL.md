@@ -9,6 +9,8 @@ date_added: "2026-05-08"
 
 # DDD Domain Interactions
 
+> 🌐 English version: [English](SKILL.en.md)
+
 ## 使用时机
 
 - 聚合边界已设计完毕，需要定义聚合之间、聚合与外部之间的协作机制。

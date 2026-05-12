@@ -1,5 +1,9 @@
 # 一套可验证的 DDD 建模技能流水线：从模糊需求到聚合模型的工程化落地
 
+> 🌐 English version: [English](ddd-pipeline-article.en.md)
+
+---
+
 > 注：本文描述的是本体系的**第一版流水线设计（4 阶段 / 8 Skill）**，也是当前 Cargo Shipping 验证案例直接对应的版本。
 > 当前主干已扩展为 **5 阶段 / 9 Skill**，新增阶段 V `ddd-openspec-bridge` 用于将战术模型转化为 OpenSpec 工程规范；详见 [ddd-skill-system-design.md](ddd-skill-system-design.md)。
 

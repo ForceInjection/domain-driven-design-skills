@@ -55,6 +55,8 @@ The core deliverable of this repository is the set of **self-developed `ddd-*` S
 
 > **Non-linear process**: Bidirectional feedback is supported between stages. Model validation (Stage IV) can trigger backtracking to earlier stages for correction, ultimately exporting through Stage V to engineering specifications. See Appendix B in [ddd-skill-system-design.en.md](docs/ddd-skill-system-design.en.md) for the detailed dependency graph and backtrack trigger matrix.
 
+![DDD Modeling Workflow Overview](assets/ddd_process_en.png)
+
 ### Entry Selection & Invocation
 
 **Choose entry by scenario**:

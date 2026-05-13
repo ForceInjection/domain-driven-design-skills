@@ -88,6 +88,8 @@ The root cause of fragmentation is lacking a recognized main path. The system ba
 
 8 Skills cover the complete cognitive chain from "what problem are we solving" to "is the model consistent, complete, and implementable." Each Skill produces structured artifacts in a single conversation turn, with artifacts flowing directly into the next Skill's input — like standard parts on an assembly line.
 
+![DDD Modeling Workflow Overview](../assets/ddd_process_en.png)
+
 Key insight: The main path is not a "waterfall." It provides a recommended execution sequence, but the system simultaneously supports 5 non-sequential entry points — existing requirements can enter from `ddd-discover`, known subdomains can go directly to `ddd-contexts`, existing models can use `ddd-model-review` for a health check. The skeleton is not a cage but a highway's main artery.
 
 ### 3.2 Contract: SKILL.md Interface Specification

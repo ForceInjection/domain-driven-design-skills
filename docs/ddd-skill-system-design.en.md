@@ -11,6 +11,10 @@ The open-source ecosystem provides numerous standalone DDD capabilities, but wha
 
 ---
 
+![DDD Modeling Workflow Overview](../assets/ddd_process_en.png)
+
+---
+
 ## 1. General Principles & Skill Interface Specification
 
 ### 1.1 Five-Stage Model

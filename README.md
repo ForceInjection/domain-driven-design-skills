@@ -55,6 +55,8 @@ git clone --recurse-submodules https://github.com/<your-org>/domain-driven-desig
 
 > **非线性流程**：阶段之间支持双向反馈，模型验证（阶段 IV）可触发回溯至前置阶段进行修正，最终通过阶段 V 导出为工程规范。详细的依赖图与触发回溯矩阵见 [ddd-skill-system-design.md](docs/ddd-skill-system-design.md) 附录 B。
 
+![DDD 建模流程全景图](assets/ddd_process.png)
+
 ### 入口选择与调用方式
 
 **按场景选择入口**：

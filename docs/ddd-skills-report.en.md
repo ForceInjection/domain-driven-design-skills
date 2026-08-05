@@ -14,7 +14,7 @@ The strategic planning phase is the core starting point of Domain-Driven Design.
 
 Clarifying complex integration relationships relies on precise context boundary definitions. By establishing interaction contracts such as Anti-Corruption Layers and Open Host Services, development teams can effectively isolate coupling risks between core subdomains and external systems. The following skills focus on macro-level business domain boundary delineation and system integration mapping.
 
-| Skill Name             | Submodule Path                               | Source Repository            | Use Case                                                                                      |
+| Skill Name             | Source Path                               | Source Repository            | Use Case                                                                                      |
 | :--------------------- | :------------------------------------------- | :--------------------------- | :-------------------------------------------------------------------------------------------- |
 | `ddd-strategic-design` | `relative-skills/antigravity-awesome-skills` | `antigravity-awesome-skills` | Organizing complex business domains, planning microservice architecture boundaries.           |
 | `ddd-context-mapping`  | `relative-skills/antigravity-awesome-skills` | `antigravity-awesome-skills` | Legacy system modernization or multi-business-line system integration design.                 |
@@ -31,7 +31,7 @@ Clarifying complex integration relationships relies on precise context boundary 
 
 Domain model implementation must rest on a robust system architecture foundation. Injecting clean architecture or hexagonal architecture core rules into engineering scaffolding ensures business entities remain independent of databases and external interface frameworks. The following skills provide complete architectural support from theoretical principles to scaffold generation.
 
-| Skill Name           | Submodule Path                    | Source Repository | Use Case                                                                      |
+| Skill Name           | Source Path                    | Source Repository | Use Case                                                                      |
 | :------------------- | :-------------------------------- | :---------------- | :---------------------------------------------------------------------------- |
 | `clean-architecture` | `relative-skills/wondelai-skills` | `wondelai-skills` | Building highly testable, easily evolvable long-term maintenance projects.    |
 | `cleanddd-skills`    | `relative-skills/cleanddd-skills` | `cleanddd-skills` | Promoting standardized domain-driven development workflows within .NET teams. |
@@ -51,7 +51,7 @@ Abstract business models need to be concretized through precise code structures.
 
 General-purpose consolidation of object-oriented design principles abstracts away underlying programming language differences. Cross-tech-stack entity identification and repository interface generation capabilities ensure high cohesion of business logic within the domain layer. The following skills are dedicated to mapping business models to standardized code building blocks.
 
-| Skill Name             | Submodule Path                    | Source Repository | Use Case                                                                 |
+| Skill Name             | Source Path                    | Source Repository | Use Case                                                                 |
 | :--------------------- | :-------------------------------- | :---------------- | :----------------------------------------------------------------------- |
 | `domain-driven-design` | `relative-skills/wondelai-skills` | `wondelai-skills` | Foundational modeling of complex core business logic in backend systems. |
 
@@ -62,7 +62,7 @@ General-purpose consolidation of object-oriented design principles abstracts awa
 
 Mainstream programming languages have accumulated distinctly different implementation paradigms in engineering practice. Deep binding with Python, Java, or other language features provides developers with out-of-the-box experiences aligned with native framework ecosystems. The following skills focus on tactical design and testing standards for specific backend tech stacks.
 
-| Skill Name               | Submodule Path                          | Source Repository                | Use Case                                                         |
+| Skill Name               | Source Path                          | Source Repository                | Use Case                                                         |
 | :----------------------- | :-------------------------------------- | :------------------------------- | :--------------------------------------------------------------- |
 | `arch-ddd`               | `relative-skills/aiee-team`             | `ai-enhanced-engineer/aiee-team` | Python backend service refactoring or greenfield projects.       |
 | `fastapi-ddd-guidelines` | `relative-skills/claude-skill-registry` | `claude-skill-registry`          | Microservice development based on Python FastAPI.                |
@@ -85,7 +85,7 @@ The design philosophy of high cohesion and low coupling is permeating into AI en
 
 Multi-step task orchestration requires systems with extremely strong state management capabilities. Encapsulating agent execution state and long-term memory as aggregate roots grants complex intelligent modules a high degree of autonomy and extensibility. The following frameworks demonstrate how to integrate system architecture design thinking into the AI agent ecosystem.
 
-| Skill Name     | Submodule Path                 | Source Repository | Use Case                                                                 |
+| Skill Name     | Source Path                 | Source Repository | Use Case                                                                 |
 | :------------- | :----------------------------- | :---------------- | :----------------------------------------------------------------------- |
 | `agentic-flow` | `relative-skills/agentic-flow` | `agentic-flow`    | Developing multi-step, strongly context-dependent complex agent systems. |
 | `solon-ai`     | `relative-skills/solon-ai`     | `solon-ai`        | Building high-cohesion intelligent skill ecosystem components in Java.   |
@@ -106,5 +106,25 @@ To form a repeatable DDD delivery pipeline, we designed a set of in-house backbo
 ## 5. Research Conclusions
 
 The current DDD skills ecosystem has formed a complete chain from macro strategy to micro code to AI-native infrastructure. Strategic planning skills greatly reduce communication costs between domain experts and developers while clarifying system boundaries; tactical implementation skills deeply integrate with Python, C#, Java, and other language features, ensuring rich domain model implementation through strict architectural rules and testing standards; and the emergence of `agentic-flow` and `solon-ai` marks the successful penetration of modular, loosely-coupled architectural thinking into the engineering practice of complex multi-agent collaborative systems. Teams can precisely adopt the above skill libraries according to their project phase and tech stack preferences to significantly improve development efficiency.
+
+---
+
+## 6. Improvement Backlog
+
+### 6.1 Adopted (fed back into the backbone skills)
+
+| Improvement                                                         | Source                       | Applied at                                   | Status     |
+| :------------------------------------------------------------------ | :--------------------------- | :------------------------------------------- | :--------- |
+| Foreign-reference re-review + Specification pattern recognition     | cargo-validation REPORT §6.1 | `skills/ddd-aggregates/SKILL.md`             | ✅ Adopted |
+| 9th industry-benchmark dimension (open-source reference comparison) | cargo-validation REPORT §6.1 | `skills/ddd-model-review/SKILL.md`           | ✅ Adopted |
+| ADR declaration for intermediate concepts (intent/request-like)     | cargo-validation REPORT §6.1 | `skills/ddd-contexts/SKILL.md`               | ✅ Adopted |
+| Complete 2 backtrack triggers (F4/F5)                               | cargo-validation follow-up   | `backtrack-test/injection-report.md` §F4/§F5 | ✅ Done    |
+| New validation case without a canonical reference                   | insurance-validation         | `validation-cases/insurance-validation/` (expert-review, 90.9%) | ✅ Done |
+
+### 6.2 Open Items
+
+| Item                                              | Description                                                                                                                            | Priority |
+| :------------------------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------- | :------- |
+| Stage V validation boundary                       | `ddd-openspec-bridge` is outside the blind-run scope; decide whether to include it in validation or explicitly declare it out of scope | Medium   |
 
 ---

@@ -6,11 +6,13 @@
 
 > This directory documents the **end-to-end validation method** for the 8 in-house DDD modeling skills, along with completed validation cases.
 >
+> **Validation scope**: The blind-run pipeline covers the 8 Skills of Stages I (Discovery) – IV (Validation); Stage V `ddd-openspec-bridge` (OpenSpec specification bridging) is outside the blind-run validation scope.
+>
 > Current case: [cargo-validation](./cargo-validation/) — using Eric Evans + Citerus' Cargo Shipping DDD Sample as ground truth reference.
 
 ## 1. Method Objectives
 
-Perform objective quality assessment of the 4-stage modeling pipeline composed of 8 Skills under `skills/`, answering three questions:
+Perform objective quality assessment of the modeling pipeline composed of the 8 Skills of Stages I–IV under `skills/`, answering three questions:
 
 1. Without DDD terminology hints, can the pipeline converge a vague business description into a usable domain model?
 2. How much deviation exists between its output and industry-standard samples, and is the deviation positive or negative?
@@ -48,7 +50,7 @@ Starting from the selected reference implementation, rewrite a 500-800 word busi
 
 ### Step 2 — Blind-Run 8-Skill Pipeline
 
-Execute in 4-stage pipeline order, each step reading only the current Skill's upstream output:
+Execute in Stage I–IV pipeline order, each step reading only the current Skill's upstream output:
 
 | Stage         | Seq | Skill                   | Deliverable                                                                |
 | :------------ | :-- | :---------------------- | :------------------------------------------------------------------------- |
@@ -95,6 +97,8 @@ One section per Skill, containing:
 - Deviation table (blind terminology <-> ground truth terminology, judging semantic impact)
 - Score and rationale
 - Weighted total = Sum(score x weight) / (4 x Sum(weights)) x 100%
+
+> **No-reference cases (expert-review method)**: when the domain has no mature open-source reference implementation, A-class anchors are replaced by four criteria — business completeness (full coverage of the brief), DDD principle compliance, internal consistency (artifact continuity across Skills), and positive overreach recognition (see [insurance-validation/scoring/rubric.md](./insurance-validation/scoring/rubric.md)). Review requirements: **at least 2 reviewers cross-score, or the business side samples ≥ 3 key invariants**, to mitigate subjectivity without ground truth; scores must be marked as "not directly comparable with ground-truth cases".
 
 ### Step 5 — Backtrack Injection Test
 
@@ -166,11 +170,14 @@ validation-cases/<case-name>/
 
 | Case                                    | Reference Implementation                    | Weighted Score | Report                                                 |
 | :-------------------------------------- | :------------------------------------------ | :------------- | :----------------------------------------------------- |
-| [cargo-validation](./cargo-validation/) | Cargo Shipping DDD Sample (Evans + Citerus) | **85.8%**      | [REPORT.md](./cargo-validation/REPORT.md) (in Chinese) |
+| [cargo-validation](./cargo-validation/)     | Cargo Shipping DDD Sample (Evans + Citerus) | **85.8%**      | [REPORT.md](./cargo-validation/REPORT.md) (in Chinese)       |
+| [insurance-validation](./insurance-validation/) | None (expert-review method, four criteria) | **90.9%**\* | [REPORT.md](./insurance-validation/REPORT.md) (in Chinese) |
+
+> \* insurance-validation is a no-reference case scored with the expert-review method (see its `scoring/rubric.md`); **not directly comparable** with cargo-validation's ground-truth score.
 
 ## 7. Known Limitations of the Method
 
 - **Dependent on reference quality**: Ground truth comes from the reference implementation; if the reference itself has controversial modeling decisions (e.g., the Cargo sample's HandlingEvent/Activity/Status semantic overlap), the scoring standard needs explicit exemptions.
 - **Blind-run is hard to audit**: Executors may subconsciously use known reference structures. Mitigation: multi-person cross blind-runs, or have different people execute 02 and 06 separately.
 - **Limited injection surface**: Each injection tests only one trigger condition; compound defects across conditions are not covered.
-- **Need "no-reference" cases**: Currently only "with reference" cases like Cargo exist, unable to reflect actual skill performance when no reference is available.
+- **Subjectivity of the expert-review method**: No-reference cases ([insurance-validation](./insurance-validation/)) use expert review, whose business-completeness criterion cannot be externally verified; mitigation: at least 2 reviewers cross-score, or the business side samples ≥ 3 key invariants (see §4.2).

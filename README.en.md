@@ -86,7 +86,7 @@ The core deliverable of this repository is the set of **self-developed `ddd-*` S
 
 The table below summarizes research records of representative DDD-related Skills from the open-source community, for **understanding the landscape, comparing differences, and composing on-demand**. They are **not part of this repository's backbone** and are provided for reference only — not distributed with this repository.
 
-| Design Layer              | Skill Name                | Submodule Path                               | Source Repository                                                                           | Use Case                                                                                             |
+| Design Layer              | Skill Name                | Source Path                               | Source Repository                                                                           | Use Case                                                                                             |
 | :------------------------ | :------------------------ | :------------------------------------------- | :------------------------------------------------------------------------------------------ | :--------------------------------------------------------------------------------------------------- |
 | General Tactical Modeling | `domain-driven-design`    | `relative-skills/wondelai-skills`            | [wondelai/skills](https://github.com/wondelai/skills)                                       | General tactical modeling tool focusing on entities, VOs, aggregates, domain services, repositories  |
 | Architecture Style Fusion | `clean-ddd-hexagonal`     | `relative-skills/robust-skills`              | [ccheney/robust-skills](https://github.com/ccheney/robust-skills)                           | DDD + Clean Architecture + Hexagonal Architecture fusion with dependency rule decision tree          |
@@ -121,7 +121,8 @@ The table below summarizes research records of representative DDD-related Skills
 To perform **objective, repeatable quality assessment** of the in-house `ddd-*` Skill backbone, the repository maintains an independent `validation-cases/` directory containing end-to-end blind-run validation cases and general validation methodology.
 
 - [validation-cases/README.en.md](validation-cases/README.en.md) — **Validation Method Overview**: 6-step process (fuzzy input -> blind-run 8 Skills -> ground truth extraction -> benchmark scoring -> backtrack injection test -> summary report), blind-run constraints, injection matrix, reusable steps, and known limitations.
-- [validation-cases/cargo-validation/](validation-cases/cargo-validation/) — **Cargo Validation Case**: Using Eric Evans + Citerus' Cargo Shipping DDD Sample (submodule `validation-cases/cargo-shipping`) as ground truth reference, running the full 8-Skill pipeline. Current weighted score **85.8%** (B+ Good), backtrack trigger tests **3/3 all passed**; see [REPORT.md](validation-cases/cargo-validation/REPORT.md) (in Chinese) for full conclusions.
+- [validation-cases/cargo-validation/](validation-cases/cargo-validation/) — **Cargo Validation Case**: Using Eric Evans + Citerus' Cargo Shipping DDD Sample (submodule `validation-cases/cargo-shipping`) as ground truth reference, running the full 8-Skill pipeline. Current weighted score **85.8%** (B+ Good), backtrack trigger tests **5/5 all passed**; see [REPORT.md](validation-cases/cargo-validation/REPORT.md) (in Chinese) for full conclusions.
+- [validation-cases/insurance-validation/](validation-cases/insurance-validation/) — **Insurance Underwriting & Claims Validation Case**: a **no-canonical-reference** domain (insurance), scored with the expert-review method (four criteria replacing ground-truth anchors). Weighted score **90.9%** (not directly comparable with the Cargo score); see [REPORT.md](validation-cases/insurance-validation/REPORT.md) (in Chinese) for full conclusions.
 
 Validation results have been fed back into backbone SKILL iterations (e.g., `ddd-aggregates`' "foreign reference re-examination + Specification pattern," `ddd-model-review`'s "industry benchmarking dimension," `ddd-contexts`' "intermediate concept ADR"), forming an observable feedback loop.
 
@@ -144,7 +145,8 @@ skills/
 validation-cases/
 ├── README.md                   # Validation Method Overview (6-step process)
 ├── cargo-shipping/             # Cargo Shipping DDD Sample (submodule, ground truth source)
-└── cargo-validation/           # Cargo Validation Case (blind outputs + ground truth + scoring + backtrack injection + REPORT)
+├── cargo-validation/           # Cargo Validation Case (blind outputs + ground truth + scoring + backtrack injection + REPORT)
+└── insurance-validation/       # Insurance Underwriting & Claims Validation Case (no canonical reference, expert-review)
 ```
 
 > Research records of external ecosystem Skills are listed in the [External Ecosystem References](#external-ecosystem-references) section; they are no longer distributed as submodules.
@@ -159,6 +161,7 @@ validation-cases/
 - [ddd-skills-report.en.md](docs/ddd-skills-report.en.md) — DDD skills research report (with references and improvement backlog)
 - [validation-cases/README.en.md](validation-cases/README.en.md) — Validation Method Overview (6-step blind-run process, injection matrix, reuse guide)
 - [validation-cases/cargo-validation/REPORT.md](validation-cases/cargo-validation/REPORT.md) — Cargo Shipping validation report (current score 85.8%) (in Chinese)
+- [validation-cases/insurance-validation/REPORT.md](validation-cases/insurance-validation/REPORT.md) — Insurance validation report (no canonical reference, expert-review 90.9%) (in Chinese)
 
 ---
 

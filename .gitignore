@@ -1,1 +1,5 @@
 .trae/
+.DS_Store
+
+# 本地交付物，不入库
+docs/一套可验证的 DDD 建模技能流水线.pptx

@@ -6,7 +6,7 @@
 
 > ⚠️ **Work In Progress (WIP)**：本仓库及其自研体系主干正处于积极建设与持续迭代中，部分结构、文档与规范可能随时调整。
 
-本仓库以自研的 `ddd-*` Skill 为核心，提供一套面向 AI Agent 的领域建模主干链路（发现 / 战略 / 战术 / 验证 / 规范衔接）；同时以 Git Submodule 形式收录主流 DDD 相关 AI Skill，作为生态参考便于对比与按需引用。
+本仓库以自研的 `ddd-*` Skill 为核心，提供一套面向 AI Agent 的领域建模主干链路（发现 / 战略 / 战术 / 验证 / 规范衔接）；同时以调研记录形式收录主流 DDD 相关 AI Skill 的生态参考（见[外部生态参考](#外部生态参考)），便于对比与按需引用。
 
 ```bash
 # 快速克隆（含所有子模块）
@@ -17,7 +17,7 @@ git clone --recurse-submodules https://github.com/<your-org>/domain-driven-desig
 
 ## 本仓库 DDD Skills（`ddd-*` Skill）
 
-本仓库的核心交付物是 `skills/` 目录下的一组 **自研 `ddd-*` Skill**，它们构成一套面向 AI Agent 的领域建模主干链路。`relative-skills/` 下的外部子模块仅作为**生态参考**，用于对比与按需引用，不承担主流程职责。
+本仓库的核心交付物是 `skills/` 目录下的一组 **自研 `ddd-*` Skill**，它们构成一套面向 AI Agent 的领域建模主干链路。外部生态 Skill 仅作为**生态参考**（见[外部生态参考](#外部生态参考)），用于对比与按需引用，不承担主流程职责。
 
 ### 设计动机与边界
 
@@ -84,7 +84,7 @@ git clone --recurse-submodules https://github.com/<your-org>/domain-driven-desig
 
 ## 外部生态参考
 
-下表汇总了开源社区中具有代表性的 DDD 相关 Skill，以 Git Submodule 形式冻结引用，便于**了解现状、对比差异、按需组合**。它们**不是本仓库主干的一部分**，供参考使用。
+下表汇总了开源社区中具有代表性的 DDD 相关 Skill 调研记录，便于**了解现状、对比差异、按需组合**。它们**不是本仓库主干的一部分**，仅作参考使用，不随本仓库分发。
 
 | 设计层级      | Skill 名称                | 子模块路径                                   | 源仓库                                                                                      | 适用场景                                                       |
 | :------------ | :------------------------ | :------------------------------------------- | :------------------------------------------------------------------------------------------ | :------------------------------------------------------------- |
@@ -100,7 +100,7 @@ git clone --recurse-submodules https://github.com/<your-org>/domain-driven-desig
 | 特定框架/平台 | `Solon AI Skills`         | `relative-skills/solon-ai`                   | [opensolon/solon-ai](https://github.com/opensolon/solon-ai)                                 | Solon AI 框架，将 Skill 视为自治语义上下文，借鉴 DDD 思想      |
 | 重点场景/应用 | `microservices-architect` | `relative-skills/jeffallan-claude-skills`    | [Jeffallan/claude-skills](https://github.com/Jeffallan/claude-skills)                       | 微服务架构师，运用 DDD 限界上下文指导服务拆分                  |
 
-> 使用方式：通过 Git Submodule 拉取到本地后，可在各自仓库中按其原生约定调用（通常为 `@skill-name`）。
+> 引用方式：按表格中的源仓库链接获取，在各自仓库中按其原生约定调用（通常为 `@skill-name`）。
 
 **选型建议**：
 
@@ -145,18 +145,9 @@ validation-cases/
 ├── README.md                   # 验证方法总纲（6 步流程）
 ├── cargo-shipping/             # Cargo Shipping DDD Sample（子模块，真值来源）
 └── cargo-validation/           # Cargo 验证案例（盲产出 + 真值 + 评分 + 回溯注入 + REPORT）
-
-relative-skills/
-├── wondelai-skills/            # domain-driven-design
-├── robust-skills/              # clean-ddd-hexagonal
-├── antigravity-awesome-skills/ # ddd-strategic-design, ddd-context-mapping, architecture-patterns
-├── aiee-team/                  # arch-ddd
-├── claude-skill-registry/      # ddd-planning（通用 DDD Skill 注册表，本表仅收录 ddd-planning）
-├── cleanddd-skills/            # cleanddd-skills
-├── agentic-flow/               # claude-flow
-├── solon-ai/                   # Solon AI Skills
-└── jeffallan-claude-skills/    # microservices-architect
 ```
+
+> 外部生态 Skill 的调研记录见[外部生态参考](#外部生态参考)章节，不再以子模块形式分发。
 
 ---
 
@@ -173,24 +164,8 @@ relative-skills/
 
 ## 子模块管理
 
-如果已克隆但未拉取子模块：
+仓库仅保留 `validation-cases/cargo-shipping` 一个子模块（验证案例的真值来源）。如果已克隆但未拉取：
 
 ```bash
 git submodule update --init --recursive
-```
-
-更新所有子模块到最新版本：
-
-```bash
-git submodule update --remote
-```
-
-更新指定子模块：
-
-```bash
-cd relative-skills/<submodule-name>
-git pull origin main
-cd ../..
-git add relative-skills/<submodule-name>
-git commit -m "update: bump <submodule-name> to latest"
 ```

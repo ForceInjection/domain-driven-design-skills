@@ -6,7 +6,7 @@
 
 > :warning: **Work In Progress (WIP)**: This repository and its in-house backbone are under active construction and continuous iteration. Some structures, documentation, and specifications may change at any time.
 
-This repository centers on self-developed `ddd-*` Skills, providing a domain modeling backbone pipeline for AI Agents (Discovery / Strategic / Tactical / Validation / Specification Bridging). It also incorporates mainstream DDD-related AI Skills from the ecosystem via Git Submodules as reference for comparison and on-demand use.
+This repository centers on self-developed `ddd-*` Skills, providing a domain modeling backbone pipeline for AI Agents (Discovery / Strategic / Tactical / Validation / Specification Bridging). It also documents mainstream DDD-related AI Skills from the ecosystem as research references (see [External Ecosystem References](#external-ecosystem-references)) for comparison and on-demand use.
 
 ```bash
 # Quick clone (with all submodules)
@@ -17,7 +17,7 @@ git clone --recurse-submodules https://github.com/<your-org>/domain-driven-desig
 
 ## In-House DDD Skills (`ddd-*` Skills)
 
-The core deliverable of this repository is the set of **self-developed `ddd-*` Skills** under the `skills/` directory, forming a domain modeling backbone pipeline for AI Agents. The external submodules under `relative-skills/` serve only as **ecosystem references** for comparison and on-demand use — they do not carry mainline responsibilities.
+The core deliverable of this repository is the set of **self-developed `ddd-*` Skills** under the `skills/` directory, forming a domain modeling backbone pipeline for AI Agents. External ecosystem Skills serve only as **research references** (see [External Ecosystem References](#external-ecosystem-references)) for comparison and on-demand use — they do not carry mainline responsibilities.
 
 ### Design Motivation & Boundaries
 
@@ -84,7 +84,7 @@ The core deliverable of this repository is the set of **self-developed `ddd-*` S
 
 ## External Ecosystem Reference
 
-The table below summarizes representative DDD-related Skills from the open-source community, frozen via Git Submodules for **understanding the landscape, comparing differences, and composing on-demand**. They are **not part of this repository's backbone** and are provided for reference.
+The table below summarizes research records of representative DDD-related Skills from the open-source community, for **understanding the landscape, comparing differences, and composing on-demand**. They are **not part of this repository's backbone** and are provided for reference only — not distributed with this repository.
 
 | Design Layer              | Skill Name                | Submodule Path                               | Source Repository                                                                           | Use Case                                                                                             |
 | :------------------------ | :------------------------ | :------------------------------------------- | :------------------------------------------------------------------------------------------ | :--------------------------------------------------------------------------------------------------- |
@@ -100,7 +100,7 @@ The table below summarizes representative DDD-related Skills from the open-sourc
 | Platform-Specific         | `Solon AI Skills`         | `relative-skills/solon-ai`                   | [opensolon/solon-ai](https://github.com/opensolon/solon-ai)                                 | Solon AI framework treating Skills as autonomous semantic contexts, inspired by DDD                  |
 | Domain-Specific           | `microservices-architect` | `relative-skills/jeffallan-claude-skills`    | [Jeffallan/claude-skills](https://github.com/Jeffallan/claude-skills)                       | Microservices architect using DDD Bounded Contexts to guide service decomposition                    |
 
-> Usage: After pulling via Git Submodules, invoke each repository's Skills according to their native conventions (typically `@skill-name`).
+> Referencing: Fetch from the source repository links in the table, then invoke each repository's Skills according to their native conventions (typically `@skill-name`).
 
 **Selection Guide**:
 
@@ -145,18 +145,9 @@ validation-cases/
 ├── README.md                   # Validation Method Overview (6-step process)
 ├── cargo-shipping/             # Cargo Shipping DDD Sample (submodule, ground truth source)
 └── cargo-validation/           # Cargo Validation Case (blind outputs + ground truth + scoring + backtrack injection + REPORT)
-
-relative-skills/
-├── wondelai-skills/            # domain-driven-design
-├── robust-skills/              # clean-ddd-hexagonal
-├── antigravity-awesome-skills/ # ddd-strategic-design, ddd-context-mapping, architecture-patterns
-├── aiee-team/                  # arch-ddd
-├── claude-skill-registry/      # ddd-planning (general DDD skill registry; only ddd-planning is curated here)
-├── cleanddd-skills/            # cleanddd-skills
-├── agentic-flow/               # claude-flow
-├── solon-ai/                   # Solon AI Skills
-└── jeffallan-claude-skills/    # microservices-architect
 ```
+
+> Research records of external ecosystem Skills are listed in the [External Ecosystem References](#external-ecosystem-references) section; they are no longer distributed as submodules.
 
 ---
 
@@ -173,24 +164,8 @@ relative-skills/
 
 ## Submodule Management
 
-If you've cloned but haven't pulled submodules:
+The repository keeps a single submodule, `validation-cases/cargo-shipping` (the ground-truth source for the validation case). If you've cloned but haven't pulled it:
 
 ```bash
 git submodule update --init --recursive
-```
-
-Update all submodules to latest:
-
-```bash
-git submodule update --remote
-```
-
-Update a specific submodule:
-
-```bash
-cd relative-skills/<submodule-name>
-git pull origin main
-cd ../..
-git add relative-skills/<submodule-name>
-git commit -m "update: bump <submodule-name> to latest"
 ```

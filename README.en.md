@@ -149,7 +149,7 @@ validation-cases/
 └── insurance-validation/       # Insurance Underwriting & Claims Validation Case (no canonical reference, expert-review)
 ```
 
-> Research records of external ecosystem Skills are listed in the [External Ecosystem References](#external-ecosystem-references) section; they are no longer distributed as submodules.
+> Research records of external ecosystem Skills are listed in the [External Ecosystem References](#external-ecosystem-reference) section; they are no longer distributed as submodules.
 
 ---
 

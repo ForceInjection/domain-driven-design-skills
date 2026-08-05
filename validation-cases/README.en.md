@@ -6,7 +6,7 @@
 
 > This directory documents the **end-to-end validation method** for the 8 in-house DDD modeling skills, along with completed validation cases.
 >
-> **Validation scope**: The blind-run pipeline covers the 8 Skills of Stages I (Discovery) – IV (Validation); Stage V `ddd-openspec-bridge` (OpenSpec specification bridging) is outside the blind-run validation scope.
+> **Validation scope**: The blind-run pipeline covers the 8 Skills of Stages I (Discovery) – IV (Validation); Stage V `ddd-openspec-bridge` (OpenSpec specification bridging) is covered since 2026-08 via the appended `09-ddd-openspec-bridge.out.md` in the [insurance-validation](./insurance-validation/) case.
 >
 > Current case: [cargo-validation](./cargo-validation/) — using Eric Evans + Citerus' Cargo Shipping DDD Sample as ground truth reference.
 
@@ -52,18 +52,21 @@ Starting from the selected reference implementation, rewrite a 500-800 word busi
 
 Execute in Stage I–IV pipeline order, each step reading only the current Skill's upstream output:
 
-| Stage         | Seq | Skill                   | Deliverable                                                                |
-| :------------ | :-- | :---------------------- | :------------------------------------------------------------------------- |
-| I Discovery   | 01  | ddd-scope               | Problem statement, goals/non-goals, terminology seeds, risks               |
-| I Discovery   | 02  | ddd-discover            | Event flow main path, exception branches, commands, hotspots, ambiguities  |
-| II Strategic  | 03  | ddd-subdomains          | Capability map, subdomain classification (Core/Supporting/Generic)         |
-| II Strategic  | 04  | ddd-contexts            | Context directory, Ubiquitous Language, anti-terms, ADRs                   |
-| II Strategic  | 05  | ddd-context-map         | Relationship matrix, contract ownership, ACL, failure modes                |
-| III Tactical  | 06  | ddd-aggregates          | Aggregate directory, invariants, entities/VOs, cross-aggregate consistency |
-| III Tactical  | 07  | ddd-domain-interactions | Event directory, domain services, factories, subscriber matrix             |
-| IV Validation | 08  | ddd-model-review        | 8-dimension internal review, issue list, backtrack determination           |
+| Stage           | Seq | Skill                   | Deliverable                                                                |
+| :-------------- | :-- | :---------------------- | :------------------------------------------------------------------------- |
+| I Discovery     | 01  | ddd-scope               | Problem statement, goals/non-goals, terminology seeds, risks               |
+| I Discovery     | 02  | ddd-discover            | Event flow main path, exception branches, commands, hotspots, ambiguities  |
+| II Strategic    | 03  | ddd-subdomains          | Capability map, subdomain classification (Core/Supporting/Generic)         |
+| II Strategic    | 04  | ddd-contexts            | Context directory, Ubiquitous Language, anti-terms, ADRs                   |
+| II Strategic    | 05  | ddd-context-map         | Relationship matrix, contract ownership, ACL, failure modes                |
+| III Tactical    | 06  | ddd-aggregates          | Aggregate directory, invariants, entities/VOs, cross-aggregate consistency |
+| III Tactical    | 07  | ddd-domain-interactions | Event directory, domain services, factories, subscriber matrix             |
+| IV Validation   | 08  | ddd-model-review        | 8-dimension internal review, issue list, backtrack determination           |
+| V Specification | 09  | ddd-openspec-bridge     | OpenSpec changeset (proposal / design / specs / tasks)                     |
 
 **Blind-run discipline**: Step 3 may only begin after 08 is complete.
+
+> 09 (Stage V) is a step appended by the [insurance-validation](./insurance-validation/) case; the Cargo case does not run 09.
 
 ### Step 3 — Extract Ground Truth
 
@@ -168,10 +171,10 @@ validation-cases/<case-name>/
 
 ## 6. Completed Validation Cases
 
-| Case                                    | Reference Implementation                    | Weighted Score | Report                                                 |
-| :-------------------------------------- | :------------------------------------------ | :------------- | :----------------------------------------------------- |
-| [cargo-validation](./cargo-validation/)     | Cargo Shipping DDD Sample (Evans + Citerus) | **85.8%**      | [REPORT.md](./cargo-validation/REPORT.md) (in Chinese)       |
-| [insurance-validation](./insurance-validation/) | None (expert-review method, four criteria) | **90.9%**\* | [REPORT.md](./insurance-validation/REPORT.md) (in Chinese) |
+| Case                                            | Reference Implementation                    | Weighted Score | Report                                                     |
+| :---------------------------------------------- | :------------------------------------------ | :------------- | :--------------------------------------------------------- |
+| [cargo-validation](./cargo-validation/)         | Cargo Shipping DDD Sample (Evans + Citerus) | **85.8%**      | [REPORT.md](./cargo-validation/REPORT.md) (in Chinese)     |
+| [insurance-validation](./insurance-validation/) | None (expert-review method, four criteria)  | **90.9%**\*    | [REPORT.md](./insurance-validation/REPORT.md) (in Chinese) |
 
 > \* insurance-validation is a no-reference case scored with the expert-review method (see its `scoring/rubric.md`); **not directly comparable** with cargo-validation's ground-truth score.
 

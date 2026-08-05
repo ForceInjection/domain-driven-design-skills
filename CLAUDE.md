@@ -69,7 +69,7 @@ Skills are invoked via `@skill-name` syntax in agent conversations; artifacts of
 The 6-step blind-run process validates the pipeline objectively (see `validation-cases/README.md`):
 
 1. Construct a fuzzy business prompt (no DDD terms, no reference class names) → `00-fuzzy-prompt.md`
-2. Blind-run the 8 skills (stages I–IV; `ddd-openspec-bridge` is excluded) → `NN-ddd-<skill>.out.md`, reading only upstream artifacts
+2. Blind-run the skills (stages I–IV; the insurance-validation case additionally runs 09 `ddd-openspec-bridge`, stage V) → `NN-ddd-<skill>.out.md`, reading only upstream artifacts
 3. Extract ground truth from the reference implementation into `reference/` (contexts/aggregates/events/context-map) — **never before blind run completes**
 4. Score against `scoring/rubric.md` (weights, A-class anchors, B-class ±points) → `scoring/scorecard.md`
 5. Inject controlled defects (`backtrack-test/injection-report.md`) to verify backtrack triggers fire and route correctly

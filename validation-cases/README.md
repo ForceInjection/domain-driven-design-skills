@@ -6,7 +6,7 @@
 
 > 本目录记录对自研 8 个 DDD 建模 Skill 的 **端到端验证方法**，以及各个已完成的验证案例。
 >
-> **验证范围**：盲跑流水线覆盖阶段 I（发现）– IV（验证）的 8 个 Skill；阶段 V `ddd-openspec-bridge`（OpenSpec 规范衔接）不在盲跑验证范围内。
+> **验证范围**：盲跑流水线覆盖阶段 I（发现）– IV（验证）的 8 个 Skill；阶段 V `ddd-openspec-bridge`（OpenSpec 规范衔接）自 2026-08 起通过 [insurance-validation](./insurance-validation/) 案例追加的 `09-ddd-openspec-bridge.out.md` 纳入验证。
 >
 > 当前案例：[cargo-validation](./cargo-validation/) — 以 Eric Evans + Citerus 的 Cargo Shipping DDD Sample 为真值参照。
 
@@ -52,18 +52,21 @@ graph LR
 
 按照阶段 I–IV 流水线顺序执行，每一步只读当前 Skill 的上游产出：
 
-| 阶段     | 序号 | Skill                   | 产物                                          |
-| :------- | :--- | :---------------------- | :-------------------------------------------- |
-| I 发现   | 01   | ddd-scope               | 问题陈述、目标/非目标、术语种子、风险         |
-| I 发现   | 02   | ddd-discover            | 事件流主路径、异常分支、命令、热点、歧义      |
-| II 战略  | 03   | ddd-subdomains          | 能力地图、子域分类（Core/Supporting/Generic） |
-| II 战略  | 04   | ddd-contexts            | 上下文目录、通用语言、反术语、ADR             |
-| II 战略  | 05   | ddd-context-map         | 关系矩阵、契约所有权、ACL、失败模式           |
-| III 战术 | 06   | ddd-aggregates          | 聚合目录、不变量、实体/VO、跨聚合一致性       |
-| III 战术 | 07   | ddd-domain-interactions | 事件目录、领域服务、工厂、订阅矩阵            |
-| IV 验证  | 08   | ddd-model-review        | 8 维内审、问题清单、回溯判定                  |
+| 阶段     | 序号 | Skill                   | 产物                                                 |
+| :------- | :--- | :---------------------- | :--------------------------------------------------- |
+| I 发现   | 01   | ddd-scope               | 问题陈述、目标/非目标、术语种子、风险                |
+| I 发现   | 02   | ddd-discover            | 事件流主路径、异常分支、命令、热点、歧义             |
+| II 战略  | 03   | ddd-subdomains          | 能力地图、子域分类（Core/Supporting/Generic）        |
+| II 战略  | 04   | ddd-contexts            | 上下文目录、通用语言、反术语、ADR                    |
+| II 战略  | 05   | ddd-context-map         | 关系矩阵、契约所有权、ACL、失败模式                  |
+| III 战术 | 06   | ddd-aggregates          | 聚合目录、不变量、实体/VO、跨聚合一致性              |
+| III 战术 | 07   | ddd-domain-interactions | 事件目录、领域服务、工厂、订阅矩阵                   |
+| IV 验证  | 08   | ddd-model-review        | 8 维内审、问题清单、回溯判定                         |
+| V 规范   | 09   | ddd-openspec-bridge     | OpenSpec 变更集（proposal / design / specs / tasks） |
 
 **盲跑纪律**：只有在 08 完成之后，方可开始步骤 3。
+
+> 09（阶段 V）为 [insurance-validation](./insurance-validation/) 案例追加的验证步骤；Cargo 案例未执行 09。
 
 ### 步骤 3 — 抽取真值
 
@@ -168,10 +171,10 @@ validation-cases/<case-name>/
 
 ## 6. 已完成的验证案例
 
-| 案例                                        | 参考实现                                       | 加权得分     | 报告                                          |
-| :------------------------------------------ | :--------------------------------------------- | :----------- | :-------------------------------------------- |
-| [cargo-validation](./cargo-validation/)     | Cargo Shipping DDD Sample（Evans + Citerus）   | **85.8 %**   | [REPORT.md](./cargo-validation/REPORT.md)     |
-| [insurance-validation](./insurance-validation/) | 无（专家评审制，四类判据）                 | **90.9 %**\* | [REPORT.md](./insurance-validation/REPORT.md) |
+| 案例                                            | 参考实现                                     | 加权得分     | 报告                                          |
+| :---------------------------------------------- | :------------------------------------------- | :----------- | :-------------------------------------------- |
+| [cargo-validation](./cargo-validation/)         | Cargo Shipping DDD Sample（Evans + Citerus） | **85.8 %**   | [REPORT.md](./cargo-validation/REPORT.md)     |
+| [insurance-validation](./insurance-validation/) | 无（专家评审制，四类判据）                   | **90.9 %**\* | [REPORT.md](./insurance-validation/REPORT.md) |
 
 > \* insurance-validation 为无规范参考案例，采用专家评审制评分（见其 `scoring/rubric.md`），**与 Cargo 案例的有真值分数不可直接对比**。
 

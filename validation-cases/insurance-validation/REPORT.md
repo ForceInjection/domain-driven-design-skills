@@ -14,6 +14,7 @@
 | 回溯触发器 | 未重复注入（Cargo 案例已 5/5 验证） |
 | 盲跑覆盖 | 简报角色/流程/异常/约束全覆盖，0 项结构性缺失 |
 | 模型就绪判定 | 08 自评 Ready（含 2 项实施首迭代补齐项） |
+| 阶段 V（OpenSpec 衔接） | **已纳入验证**（09 追加盲跑）：3 能力 / 12 Scenario，校验清单 9/9 通过，回溯零触发 |
 
 8 个 Skill 的流水线将 600 余字的模糊业务简报收敛为 7 上下文 / 7 聚合 / 27 事件的完整领域模型：报案条款快照（批改并行仲裁）、调查挂起互斥、报价非承诺、累计赔付上限等关键业务规则全部以显式不变量或 ADR 固化，跨 Skill 工件衔接无断裂。
 
@@ -35,6 +36,7 @@
 | [06-ddd-aggregates.out.md](./06-ddd-aggregates.out.md) | ddd-aggregates | III 战术 |
 | [07-ddd-domain-interactions.out.md](./07-ddd-domain-interactions.out.md) | ddd-domain-interactions | III 战术 |
 | [08-ddd-model-review.out.md](./08-ddd-model-review.out.md) | ddd-model-review | IV 验证 |
+| [09-ddd-openspec-bridge.out.md](./09-ddd-openspec-bridge.out.md) | ddd-openspec-bridge | V 规范 |
 
 ### 2.3 真值（Ground Truth）
 
@@ -66,6 +68,22 @@
 ## 4. 回溯触发测试结果
 
 **未重复执行**。`ddd-model-review` 的 5 条回溯触发条件已在 Cargo 案例中通过 5/5 缺陷注入验证（F1–F5，见 `../cargo-validation/backtrack-test/injection-report.md`）。本案例聚焦"无规范参考时技能体系的真实表现"，机制本身不随领域变化，故不重复注入。说明见 `backtrack-test/README.md`。
+
+## 4b. 阶段 V 验证结果（ddd-openspec-bridge）
+
+本案例追加执行 `09-ddd-openspec-bridge`，将战术模型映射为 OpenSpec 变更集 `digital-claims-pipeline`：
+
+| 维度 | 结果 |
+| :--- | :--- |
+| 变更集规模 | 3 个能力（核保决策 / 定损赔付 / 支付执行），符合"小步快跑" |
+| Scenario 总量 | 12 个（含 P0 不变量 I-3 / I-5 / I-6 / I-8 / I-9 全覆盖） |
+| Requirement 粒度 | 全部 ≤ 5 Scenario，未跨聚合根 |
+| Scenario 纯洁性 | 无 DB / HTTP / ORM / 缓存细节渗入 |
+| 术语一致性 | 全部术语可回溯至 04 词汇表 |
+| 事件驱动范式 | Outbox / 幂等键（paymentId + claimId）/ 一事务一聚合 全部落地（design.md §4.4） |
+| 校验清单 | **9/9 通过**；回溯触发零次 |
+
+**结论**：阶段 V 与阶段 I–IV 平滑衔接——`ddd-model-review` 质量门禁通过后，OpenSpec 规范可直接驱动工程实现（tasks.md 6 个任务均绑定 Spec 验收标准）。这补齐了技能体系"5 阶段 / 9 Skills"全链验证的最后一段。
 
 ## 5. 关键发现
 
@@ -121,6 +139,7 @@ validation-cases/insurance-validation/
 ├── 06-ddd-aggregates.out.md               盲跑 阶段 III
 ├── 07-ddd-domain-interactions.out.md      盲跑 阶段 III
 ├── 08-ddd-model-review.out.md             盲跑 阶段 IV（自评）
+├── 09-ddd-openspec-bridge.out.md          盲跑 阶段 V（OpenSpec 变更集）
 ├── scoring/
 │   ├── rubric.md                          权重、0–4 标准、四类判据
 │   └── scorecard.md                       各 Skill 评分、证据、总分 90.9%
@@ -131,6 +150,6 @@ validation-cases/insurance-validation/
 
 ## 8. 结论
 
-在**无规范参考**的领域（保险承保与理赔）中，8 个 Skill 的 DDD 建模流水线将模糊业务简报收敛为一份专家评审 **90.9 %** 的领域模型：简报要素全覆盖、关键业务规则正确建模、跨 Skill 工件衔接零断裂。这回应了 `validation-cases/README.md` §7 已知局限中"无规范参考案例缺失"的缺口——**当领域不存在规范参考实现时，本技能体系具备上线可用性**。
+在**无规范参考**的领域（保险承保与理赔）中，8 个 Skill 的 DDD 建模流水线将模糊业务简报收敛为一份专家评审 **90.9 %** 的领域模型：简报要素全覆盖、关键业务规则正确建模、跨 Skill 工件衔接零断裂；追加的 09（阶段 V）将战术模型平滑映射为 OpenSpec 变更集（校验清单 9/9 通过），补齐了 5 阶段 / 9 Skills 全链验证。这回应了 `validation-cases/README.md` §7 已知局限中"无规范参考案例缺失"的缺口——**当领域不存在规范参考实现时，本技能体系具备上线可用性，且建模结果可直接衔接工程规范**。
 
 本案例得分与 Cargo 案例（85.8%，有真值对标）**不可直接对比**：评分制不同（专家评审 vs 真值锚点）。若需可比性，后续可对同一领域采用"行业标准弱真值"方案（如 ACORD 保险标准）复评。

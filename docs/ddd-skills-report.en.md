@@ -120,11 +120,12 @@ The current DDD skills ecosystem has formed a complete chain from macro strategy
 | ADR declaration for intermediate concepts (intent/request-like)     | cargo-validation REPORT §6.1 | `skills/ddd-contexts/SKILL.md`               | ✅ Adopted |
 | Complete 2 backtrack triggers (F4/F5)                               | cargo-validation follow-up   | `backtrack-test/injection-report.md` §F4/§F5 | ✅ Done    |
 | New validation case without a canonical reference                   | insurance-validation         | `validation-cases/insurance-validation/` (expert-review, 90.9%) | ✅ Done |
+| Stage V included in validation                                      | insurance-validation         | `validation-cases/insurance-validation/09-ddd-openspec-bridge.out.md` (9/9 checklist, zero backtrack) | ✅ Done |
 
 ### 6.2 Open Items
 
-| Item                                              | Description                                                                                                                            | Priority |
-| :------------------------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------- | :------- |
-| Stage V validation boundary                       | `ddd-openspec-bridge` is outside the blind-run scope; decide whether to include it in validation or explicitly declare it out of scope | Medium   |
+| Item | Description | Priority |
+| :--- | :--- | :--- |
+| (None) | All backlog items are closed. | — |
 
 ---

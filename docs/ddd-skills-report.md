@@ -120,11 +120,12 @@
 | 中间概念（需求/意向类）ADR 声明         | cargo-validation REPORT §6.1 | `skills/ddd-contexts/SKILL.md`               | ✅ 已落地 |
 | 补测 2 条回溯触发器（F4/F5）            | cargo-validation 补测        | `backtrack-test/injection-report.md` §F4/§F5 | ✅ 已完成 |
 | 新增"无规范参考"领域验证案例           | insurance-validation        | `validation-cases/insurance-validation/`（专家评审制，90.9%） | ✅ 已完成 |
+| 阶段 V 纳入验证                         | insurance-validation        | `validation-cases/insurance-validation/09-ddd-openspec-bridge.out.md`（校验 9/9，回溯零触发） | ✅ 已完成 |
 
 ### 6.2 待办
 
-| 事项            | 说明                                                                 | 优先级 |
-| :-------------- | :------------------------------------------------------------------- | :----- |
-| 阶段 V 验证边界 | `ddd-openspec-bridge` 不在盲跑范围内，需决定纳入验证或显式声明范围外 | 中     |
+| 事项 | 说明 | 优先级 |
+| :--- | :--- | :----- |
+| （无） | 全部 backlog 事项已闭环 | — |
 
 ---

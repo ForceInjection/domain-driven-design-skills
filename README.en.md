@@ -6,7 +6,7 @@
 
 > :warning: **Work In Progress (WIP)**: This repository and its in-house backbone are under active construction and continuous iteration. Some structures, documentation, and specifications may change at any time.
 
-This repository centers on self-developed `ddd-*` Skills, providing a domain modeling backbone pipeline for AI Agents (Discovery / Strategic / Tactical / Validation / Specification Bridging). It also documents mainstream DDD-related AI Skills from the ecosystem as research references (see [External Ecosystem References](#external-ecosystem-references)) for comparison and on-demand use.
+This repository centers on self-developed `ddd-*` Skills, providing a domain modeling backbone pipeline for AI Agents (Discovery / Strategic / Tactical / Validation / Specification Bridging). It also documents mainstream DDD-related AI Skills from the ecosystem as research references (see [External Ecosystem References](#external-ecosystem-reference)) for comparison and on-demand use.
 
 ```bash
 # Quick clone (with all submodules)
@@ -17,7 +17,7 @@ git clone --recurse-submodules https://github.com/<your-org>/domain-driven-desig
 
 ## In-House DDD Skills (`ddd-*` Skills)
 
-The core deliverable of this repository is the set of **self-developed `ddd-*` Skills** under the `skills/` directory, forming a domain modeling backbone pipeline for AI Agents. External ecosystem Skills serve only as **research references** (see [External Ecosystem References](#external-ecosystem-references)) for comparison and on-demand use — they do not carry mainline responsibilities.
+The core deliverable of this repository is the set of **self-developed `ddd-*` Skills** under the `skills/` directory, forming a domain modeling backbone pipeline for AI Agents. External ecosystem Skills serve only as **research references** (see [External Ecosystem References](#external-ecosystem-reference)) for comparison and on-demand use — they do not carry mainline responsibilities.
 
 ### Design Motivation & Boundaries
 
@@ -86,7 +86,7 @@ The core deliverable of this repository is the set of **self-developed `ddd-*` S
 
 The table below summarizes research records of representative DDD-related Skills from the open-source community, for **understanding the landscape, comparing differences, and composing on-demand**. They are **not part of this repository's backbone** and are provided for reference only — not distributed with this repository.
 
-| Design Layer              | Skill Name                | Source Path                               | Source Repository                                                                           | Use Case                                                                                             |
+| Design Layer              | Skill Name                | Source Path                                  | Source Repository                                                                           | Use Case                                                                                             |
 | :------------------------ | :------------------------ | :------------------------------------------- | :------------------------------------------------------------------------------------------ | :--------------------------------------------------------------------------------------------------- |
 | General Tactical Modeling | `domain-driven-design`    | `relative-skills/wondelai-skills`            | [wondelai/skills](https://github.com/wondelai/skills)                                       | General tactical modeling tool focusing on entities, VOs, aggregates, domain services, repositories  |
 | Architecture Style Fusion | `clean-ddd-hexagonal`     | `relative-skills/robust-skills`              | [ccheney/robust-skills](https://github.com/ccheney/robust-skills)                           | DDD + Clean Architecture + Hexagonal Architecture fusion with dependency rule decision tree          |
@@ -122,7 +122,7 @@ To perform **objective, repeatable quality assessment** of the in-house `ddd-*` 
 
 - [validation-cases/README.en.md](validation-cases/README.en.md) — **Validation Method Overview**: 6-step process (fuzzy input -> blind-run 8 Skills -> ground truth extraction -> benchmark scoring -> backtrack injection test -> summary report), blind-run constraints, injection matrix, reusable steps, and known limitations.
 - [validation-cases/cargo-validation/](validation-cases/cargo-validation/) — **Cargo Validation Case**: Using Eric Evans + Citerus' Cargo Shipping DDD Sample (submodule `validation-cases/cargo-shipping`) as ground truth reference, running the full 8-Skill pipeline. Current weighted score **85.8%** (B+ Good), backtrack trigger tests **5/5 all passed**; see [REPORT.md](validation-cases/cargo-validation/REPORT.md) (in Chinese) for full conclusions.
-- [validation-cases/insurance-validation/](validation-cases/insurance-validation/) — **Insurance Underwriting & Claims Validation Case**: a **no-canonical-reference** domain (insurance), scored with the expert-review method (four criteria replacing ground-truth anchors). Weighted score **90.9%** (not directly comparable with the Cargo score); see [REPORT.md](validation-cases/insurance-validation/REPORT.md) (in Chinese) for full conclusions.
+- [validation-cases/insurance-validation/](validation-cases/insurance-validation/) — **Insurance Underwriting & Claims Validation Case**: a **no-canonical-reference** domain (insurance), scored with the expert-review method (four criteria replacing ground-truth anchors). Weighted score **90.9%** (not directly comparable with the Cargo score); it also appends Stage V (`ddd-openspec-bridge`, OpenSpec changeset 9/9 checklist passed), completing full 5-stage validation; see [REPORT.md](validation-cases/insurance-validation/REPORT.md) (in Chinese) for full conclusions.
 
 Validation results have been fed back into backbone SKILL iterations (e.g., `ddd-aggregates`' "foreign reference re-examination + Specification pattern," `ddd-model-review`'s "industry benchmarking dimension," `ddd-contexts`' "intermediate concept ADR"), forming an observable feedback loop.
 

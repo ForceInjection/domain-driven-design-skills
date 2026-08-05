@@ -7,7 +7,7 @@
 > Note: This article describes the **first version of the pipeline design (4 stages / 8 skills)**, which is also the version that the current Cargo Shipping validation case directly corresponds to.
 > The current backbone has been expanded to **5 stages / 9 skills**, with the new Stage V `ddd-openspec-bridge` for converting tactical models to OpenSpec engineering specifications; see [ddd-skill-system-design.en.md](ddd-skill-system-design.en.md) for details.
 
-This system consists of 8 AI Agent Skills forming a 4-stage pipeline (Discovery -> Strategic -> Tactical -> Validation), with the SKILL.md 7-section contract fixing input/output types, 10 quantified backtrack triggers enabling non-linear feedback, and a 6-step blind-run method providing external scoring baselines. Cargo Shipping initial validation: weighted score 85.8%, backtrack triggers 3/3 passed.
+This system consists of 8 AI Agent Skills forming a 4-stage pipeline (Discovery -> Strategic -> Tactical -> Validation), with the SKILL.md 7-section contract fixing input/output types, 10 quantified backtrack triggers enabling non-linear feedback, and a 6-step blind-run method providing external scoring baselines. Cargo Shipping initial validation: weighted score 85.8%, backtrack triggers 5/5 passed.
 
 ---
 
@@ -15,7 +15,7 @@ This system consists of 8 AI Agent Skills forming a 4-stage pipeline (Discovery 
 
 Domain-Driven Design was proposed over twenty years ago, yet its implementation has always relied on the experiential intuition of a few senior modelers. Eric Evans laid the strategic and tactical dual-layer framework in 2003, Alberto Brandolini brought collaborative modeling into workshops with Event Storming, and Vaughn Vernon's implementation guide gave Aggregates and Bounded Contexts operational guidance — but the predicament of "one person can't carry away a workshop" has never truly been solved. When the modeler leaves, the model stops evolving.
 
-This article uses an open-source experiment — the "DDD Skill Aggregation Repository" — as a sample to demonstrate how to decompose domain modeling into 8 clearly bounded, serializable, backtrackable, and real-case-scorable AI Agent Skills. The Cargo Shipping validation case achieved a weighted score of 85.8% with backtrack triggers 3/3 passing, pushing the old question of "can modeling be engineered" back onto a measurable working surface.
+This article uses an open-source experiment — the "DDD Skill Aggregation Repository" — as a sample to demonstrate how to decompose domain modeling into 8 clearly bounded, serializable, backtrackable, and real-case-scorable AI Agent Skills. The Cargo Shipping validation case achieved a weighted score of 85.8% with backtrack triggers 5/5 passing, pushing the old question of "can modeling be engineered" back onto a measurable working surface.
 
 If you're hesitating about "whether to let AI assist your team with DDD," this article offers not a promise, but a set of numbers and a reproducible validation method.
 
@@ -163,7 +163,7 @@ Using the Cargo Shipping DDD Sample co-maintained by Eric Evans and Citerus as t
 
 - **Weighted total score 85.8% (B+ Good)** — covering all assessment dimensions across 8 Skills. Strongest stages were Discovery (Stage I) and Domain Interactions (Stage III-b), both achieving 4.0/4 perfect scores; weakest were aggregate design and model review (both 2.5/4), the former mainly due to missing Voyage and Location as internal aggregates and the Specification pattern, the latter failing to identify concept overlap and future domain gaps.
 
-- **Backtrack triggers 3/3 all passed** — 3 controlled defects injected: retaining only 4/11 invariants (36%), having TrackingView perform misdelivery judgment, deleting 4 key derived events (completeness 64%). All three triggers correctly activated with accurate diagnosis and correct routing.
+- **Backtrack triggers 5/5 all passed** — 5 controlled defects injected: retaining only 4/11 invariants (36%), having TrackingView perform misdelivery judgment, deleting 4 key derived events (completeness 64%), mixing three names for one core concept (22.2%), and a domain service bypassing the ACL to call the external directly. All five triggers correctly activated with accurate diagnosis and correct routing.
 
 - **3 recyclable improvement points** — foreign reference lifecycle re-examination (Voyage/Location should be promoted to aggregates rather than mere ID references), Specification pattern recognition (`isSatisfiedBy` predicates should be explicitly extracted), intermediate concept ADR (ShippingRequest's lifecycle relationship with the order aggregate must be explicitly stated). All three have been fed back into the SKILL.md files of `ddd-aggregates`, `ddd-model-review`, and `ddd-contexts`.
 

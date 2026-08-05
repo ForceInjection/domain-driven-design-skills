@@ -11,7 +11,7 @@
 | 综合加权得分       | **85.8 %**（B+ / 良好）                                                         |
 | 最强阶段           | 阶段 I（发现）& 阶段 III-b（领域交互）—— 均 4.0/4                               |
 | 最弱阶段           | 阶段 III-a（聚合）—— 2.5/4                                                      |
-| 回溯触发器测试     | **3/3 项注入缺陷** 全部被正确捕获并路由                                         |
+| 回溯触发器测试     | **5/5 项注入缺陷** 全部被正确捕获并路由                                         |
 | 技能系统的关键缺陷 | 无（B-扣分 未被触发）                                                           |
 | 错失的高价值洞察   | 3 项（Billing/Customer 缺口、HandlingEvent/Activity/Status 重叠、Carrier 简化） |
 
@@ -51,7 +51,7 @@
 | :------------------------------------------------------------------------- | :-------------------------------- |
 | [scoring/rubric.md](./scoring/rubric.md)                                   | 权重、标准、锚点清单              |
 | [scoring/scorecard.md](./scoring/scorecard.md)                             | 各 Skill 评分 + 偏移表 + 加权总分 |
-| [backtrack-test/injection-report.md](./backtrack-test/injection-report.md) | 注入 3 项缺陷，全部正确触发       |
+| [backtrack-test/injection-report.md](./backtrack-test/injection-report.md) | 注入 5 项缺陷，全部正确触发       |
 
 ## 3. 评分总览
 
@@ -76,8 +76,10 @@
 | F1：仅保留 4/11 条不变量（36%）         | 不变量表达率 < 60%       | ddd-aggregates          | ✅ PASS |
 | F2：TrackingView 承担错卸判定           | 聚合边界与上下文边界矛盾 | ddd-contexts            | ✅ PASS |
 | F3：删除 4 个关键派生事件（完整性 64%） | 事件完整性 < 70%         | ddd-domain-interactions | ✅ PASS |
+| F4：一票货物三种命名混用（冲突 22.2%）  | 术语冲突率 > 20%         | ddd-contexts            | ✅ PASS |
+| F5：领域服务绕过 ACL 直连外部            | 集成模式与上下文映射不一致 | ddd-context-map         | ✅ PASS |
 
-三条触发器均正确激活，诊断无误、路由正确。另外两条触发器（术语冲突率 > 20%、集成模式不一致）因盲跑基线过于干净而未能测试，已记录供后续补测。
+五条触发器均正确激活，诊断无误、路由正确。其中 F4（术语冲突率 > 20%）与 F5（集成模式不一致）在首次盲跑中因产出基线过于干净未能构造反例，后按 `injection-report.md` 中的注入设计补测通过。
 
 ## 5. 关键发现
 
@@ -124,8 +126,8 @@
 
 后续的验证案例应当：
 
-- 按 `backtrack-test/injection-report.md §未测试项` 中给出的注入方式，补齐两条未测试的触发器（术语冲突率 > 20%、集成模式不一致）。
 - 至少补充一个 **没有成熟开源参考** 的领域案例，测试技能在缺少规范基准时的表现。
+- ~~补齐两条未测试的触发器（术语冲突率 > 20%、集成模式不一致）~~ —— 已完成，见 `backtrack-test/injection-report.md` §F4 / §F5。
 
 ## 7. 工件索引
 
@@ -149,7 +151,7 @@ validation-cases/cargo-validation/
 │   ├── rubric.md                          权重、锚点、规则
 │   └── scorecard.md                       各 Skill 评分、偏移表、总分
 ├── backtrack-test/
-│   └── injection-report.md                注入 3 缺陷，3 触发器均验证通过
+│   └── injection-report.md                注入 5 缺陷，5 触发器均验证通过
 └── REPORT.md                              （本文件）
 ```
 

@@ -126,6 +126,6 @@
 
 | 事项 | 说明 | 优先级 |
 | :--- | :--- | :----- |
-| （无） | 全部 backlog 事项已闭环 | — |
+| 新手教程（issue #1） | 外部用户反馈"不写代码的话要如何使用、有没有 Step-by-Step 教程"（[issue #1](https://github.com/ForceInjection/domain-driven-design-skills/issues/1)）；已于 2026-08 落地 `docs/ddd-quickstart.md`（双语），README 已挂链接，issue 已回复 | 已完成 |
 
 ---

@@ -126,6 +126,6 @@ The current DDD skills ecosystem has formed a complete chain from macro strategy
 
 | Item | Description | Priority |
 | :--- | :--- | :--- |
-| (None) | All backlog items are closed. | — |
+| Newcomer quickstart (issue #1) | External user feedback: "how to use it without writing code, is there a step-by-step tutorial?" ([issue #1](https://github.com/ForceInjection/domain-driven-design-skills/issues/1)); addressed in 2026-08 via `docs/ddd-quickstart.en.md` (bilingual), linked from README, issue replied | Done |
 
 ---
